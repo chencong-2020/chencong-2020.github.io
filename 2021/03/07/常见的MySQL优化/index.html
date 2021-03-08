@@ -6,15 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java常见面试题 | Hexo</title>
+  <title>常见的MySQL优化 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Java常见面试题">
-<meta property="og:url" content="http://example.com/2021/03/06/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:title" content="常见的MySQL优化">
+<meta property="og:url" content="http://example.com/2021/03/07/%E5%B8%B8%E8%A7%81%E7%9A%84MySQL%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-03-06T03:20:06.000Z">
-<meta property="article:modified_time" content="2021-03-07T01:38:14.176Z">
+<meta property="article:published_time" content="2021-03-07T01:53:38.000Z">
+<meta property="article:modified_time" content="2021-03-07T02:07:21.903Z">
 <meta property="article:author" content="陈聪">
 <meta name="twitter:card" content="summary">
   
@@ -158,20 +158,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java常见面试题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-常见的MySQL优化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java常见面试题
+      常见的MySQL优化
     </h1>
   
 
         
-        <a href="/2021/03/06/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-03-06T03:20:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
+        <a href="/2021/03/07/%E5%B8%B8%E8%A7%81%E7%9A%84MySQL%E4%BC%98%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2021-03-07T01:53:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -183,87 +183,49 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 
-<ol>
-<li><p>抽象类（abstract class）和接口（interface）有什么异同？ </p>
-<p> 答：抽象类和接口都不能够实例化，但可以定义抽象类和接口类型的引用。一个类如果继承了某个抽象类或者实现了某个接口都需要对其中的抽象方法全部进行实现，否则该类仍然需要被声明为抽象类。接口比抽象类更加抽象，因为<strong>抽象类中可以定义构造器</strong>，可以<strong>有抽象方法和具体方法</strong>，而接口中<strong>不能定义构造器</strong>而且其中的方法<strong>全部都是抽象方法</strong>。<strong>抽象类中的成员可以是private、默认、protected、public的</strong>，<strong>而接口中的成员全都是public的</strong>。抽象类中可以定义<strong>成员变量</strong>，而接口中定义的成员变量实际上都是<strong>常量</strong>。有抽象方法的类必须被声明为抽象类，而抽象类未必要有抽象方法。</p>
-</li>
-<li><p>抽象的（abstract）方法是否可同时是静态的（static）,是否可同时是本地方法（native），是否可同时被synchronized修饰？  </p>
-<p> 答：都不能。抽象方法需要子类重写，而静态的方法是无法被重写的，因此二者是矛盾的。本地方法是由本地代码（如C代码）实现的方法，而抽象方法是没有实现的，也是矛盾的。synchronized和方法的实现细节有关，抽象方法不涉及实现细节，因此也是相互矛盾的。</p>
-</li>
-<li><p>是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？</p>
-<p> 答：不可以，静态方法只能访问静态成员，因为非静态方法的调用要先创建对象，在调用静态方法时可能对象并没有被初始化。</p>
-</li>
-<li><p>String s = new String(“xyz”);创建了几个字符串对象？  </p>
-<p> 答：两个对象，一个是静态区的”xyz”，一个是用new创建在堆上的对象。</p>
-</li>
-<li><p>指出下面程序的运行结果。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">static</span> &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">static</span> &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">                A ab = <span class="keyword">new</span> B();</span><br><span class="line">                ab = <span class="keyword">new</span> B();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    ````</span><br><span class="line">    答：执行结果：1a2b2b。创建对象时构造器的调用顺序是：先初始化静态成员，然后调用父类构造器，再初始化非静态成员，最后调用自身构造器。</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> 如何实现字符串的反转及替换？  </span><br><span class="line"></span><br><span class="line">    答：方法很多，可以自己写实现也可以使用String或StringBuffer/StringBuilder中的方法。有一道很常见的面试题是用递归实现字符串反转，代码如下所示：   </span><br><span class="line">    ```java</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">reverse</span><span class="params">(String originStr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(originStr == <span class="keyword">null</span> || originStr.length() &lt;= <span class="number">1</span>) </span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> originStr;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> reverse(originStr.substring(<span class="number">1</span>)) + originStr.charAt(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>列出一些你常见的运行时异常？</p>
-<p> 答：</p>
-<ul>
-<li>ArithmeticException（算术异常）</li>
-<li>ClassCastException （类转换异常）</li>
-<li>IllegalArgumentException （非法参数异常）</li>
-<li>IndexOutOfBoundsException （下标越界异常）</li>
-<li>NullPointerException （空指针异常）</li>
-<li>SecurityException （安全异常）</li>
-</ul>
-</li>
-</ol>
-<ol start="8">
-<li><p>写一个方法，输入一个文件名和一个字符串，统计这个字符串在这个文件中出现的次数。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 工具类中的方法都是静态方式访问的因此将构造器私有不允许创建对象(绝对好习惯)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 统计给定文件中给定字符串的出现次数</span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> filename  文件名</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> word 字符串</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 字符串在文件中出现的次数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">countWordInFile</span><span class="params">(String filename, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">try</span> (FileReader fr = <span class="keyword">new</span> FileReader(filename)) &#123;</span><br><span class="line">            <span class="keyword">try</span> (BufferedReader br = <span class="keyword">new</span> BufferedReader(fr)) &#123;</span><br><span class="line">                String line = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">while</span> (line.length() &gt;= word.length() &amp;&amp; (index = line.indexOf(word)) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                        counter++;</span><br><span class="line">                        line = line.substring(index + word.length());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> counter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>如何用Java代码列出一个目录下所有的文件？</p>
-<p> 如果只要求列出当前文件夹下的文件，代码如下所示：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">&quot;/Users/Hao/Downloads&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</span><br><span class="line">            <span class="keyword">if</span>(temp.isFile()) &#123;</span><br><span class="line">                System.out.println(temp.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 如果需要对文件夹继续展开，代码如下所示：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        showDirectory(<span class="keyword">new</span> File(<span class="string">&quot;/Users/Hao/Downloads&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showDirectory</span><span class="params">(File f)</span> </span>&#123;</span><br><span class="line">        _walkDirectory(f, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">_walkDirectory</span><span class="params">(File f, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(f.isDirectory()) &#123;</span><br><span class="line">            <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</span><br><span class="line">                _walkDirectory(temp, level + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; level - <span class="number">1</span>; i++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(f.getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>阐述JDBC操作数据库的步骤。</p>
-<p>答：下面的代码以连接本机的Oracle数据库为例，演示JDBC操作数据库的步骤。</p>
-<ul>
-<li><p>加载驱动。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;oracle.jdbc.driver.OracleDriver&quot;</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建连接。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection con = DriverManager.getConnection(<span class="string">&quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;</span>, <span class="string">&quot;scott&quot;</span>, <span class="string">&quot;tiger&quot;</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建语句。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement ps = con.prepareStatement(<span class="string">&quot;select * from emp where sal between ? and ?&quot;</span>);</span><br><span class="line">ps.setInt(<span class="number">1</span>, <span class="number">1000</span>);</span><br><span class="line">ps.setInt(<span class="number">2</span>, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行语句。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = ps.executeQuery();</span><br></pre></td></tr></table></figure></li>
-<li><p>处理结果。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(rs.next()) &#123;</span><br><span class="line">    System.out.println(rs.getInt(<span class="string">&quot;empno&quot;</span>) + <span class="string">&quot; - &quot;</span> + rs.getString(<span class="string">&quot;ename&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>关闭资源。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(con != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            con.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>常见的Mysql数据库优化总结</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="1-主键索引"><a href="#1-主键索引" class="headerlink" title="1.主键索引"></a>1.主键索引</h3><p>作用：唯一约束和提高查询速度</p>
+<pre><code>#建表时创建主键索引
+create table `table_name`(
+    `id` int unsigned not null auto_increment,
+    primary key(`id`)
+);
 
-</li>
-</ul>
-<blockquote>
-<p>提示：关闭外部资源的顺序应该和打开的顺序相反，也就是说先关闭ResultSet、再关闭Statement、在关闭Connection。上面的代码只关闭了Connection（连接），虽然通常情况下在关闭连接时，连接上创建的语句和打开的游标也会关闭，但不能保证总是如此，因此应该按照刚才说的顺序分别关闭。此外，第一步加载驱动在JDBC 4.0中是可以省略的（自动从类路径中加载驱动），但是我们建议保留。</p>
-</blockquote>
-</li>
-<li><p>使用JDBC操作数据库时，如何提升读取数据的性能？如何提升更新数据的性能？</p>
-<p>答：要提升读取数据的性能，可以指定通过结果集（ResultSet）对象的setFetchSize()方法指定每次抓取的记录数（典型的空间换时间策略）；要提升更新数据的性能可以使用PreparedStatement语句构建批处理，将若干SQL语句置于一个批处理中执行。</p>
-</li>
-<li><p>在进行数据库编程时，连接池有什么作用？</p>
-<p>答：由于创建连接和释放连接都有很大的开销（尤其是数据库服务器不在本地时，每次建立连接都需要进行TCP的三次握手，释放连接需要进行TCP四次握手，造成的开销是不可忽视的），为了提升系统访问数据库的性能，可以事先创建若干连接置于连接池中，需要时直接从连接池获取，使用结束时归还连接池而不必关闭连接，从而避免频繁创建和释放连接所造成的开销，这是典型的用空间换取时间的策略（浪费了空间存储连接，但节省了创建和释放连接的时间）。池化技术在Java开发中是很常见的，在使用线程时创建线程池的道理与此相同。基于Java的开源数据库连接池主要有：C3P0、Proxool、DBCP、BoneCP、Druid等。</p>
-</li>
-<li><p>如何通过反射创建对象？</p>
-<p>答：</p>
-<ul>
-<li>方法1：通过类对象调用newInstance()方法，例如：String.class.newInstance()</li>
-<li>方法2：通过类对象的getConstructor()或getDeclaredConstructor()方法获得构造器（Constructor）对象并调用其newInstance()方法创建对象，例如：String.class.getConstructor(String.class).newInstance(“Hello”);</li>
-</ul>
-</li>
-<li><p>get和post请求的区别？</p>
-<p>答：</p>
-<p>①get请求用来从服务器上获得资源，而post是用来向服务器提交数据；</p>
-<p>②get将表单中数据按照name=value的形式，添加到action 所指向的URL 后面，并且两者使用”?”连接，而各个变量之间使用”&amp;”连接；post是将表单中的数据放在HTTP协议的请求头或消息体中，传递到action所指向URL；</p>
-<p>③get传输的数据要受到URL长度限制（1024字节）；而post可以传输大量的数据，上传文件通常要使用post方式；<br>④使用get时参数会显示在地址栏上，如果这些数据不是敏感数据，那么可以使用get；对于敏感数据还是应用使用post；</p>
-<p>⑤get使用MIME类型application/x-www-form-urlencoded的URL编码（也叫百分号编码）文本的格式传递参数，保证被传送的参数由遵循规范的文本组成，例如一个空格的编码是”%20”。</p>
-</li>
-</ol>
+#删除主键索引
+alter table `table_name` drop primary key(`id`);
+
+#已有表增加主键索引
+alter table `table_name` add primary key(`id`);
+</code></pre>
+<h3 id="2-普通索引"><a href="#2-普通索引" class="headerlink" title="2.普通索引"></a>2.普通索引</h3><p>作用：提高查询速度</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#建表时创建普通索引</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> `table_name`(</span><br><span class="line">    `name` <span class="type">char</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    index [index_name] (`name`)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">#创建普通索引</span><br><span class="line"><span class="keyword">create</span> index index_name <span class="keyword">on</span> table_name (name);</span><br><span class="line"></span><br><span class="line">#删除普通索引</span><br><span class="line"><span class="keyword">drop</span> index index_name <span class="keyword">from</span> table_name;</span><br><span class="line"></span><br><span class="line">#查看索引</span><br><span class="line"><span class="keyword">show</span> indx <span class="keyword">from</span> table_name;</span><br></pre></td></tr></table></figure>
+<h3 id="3-唯一索引"><a href="#3-唯一索引" class="headerlink" title="3.唯一索引"></a>3.唯一索引</h3><p>作用：唯一约束和提高查询速度</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#建表时创建唯一索引</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> `table_name`(</span><br><span class="line">    `name` <span class="type">char</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    <span class="keyword">unique</span> [index_name] (`name`)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">#创建唯一索引</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">unique</span> index index_name <span class="keyword">on</span> table_name (name);</span><br><span class="line"></span><br><span class="line">#删除唯一索引</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">unique</span> index index_name <span class="keyword">from</span> table_name;</span><br></pre></td></tr></table></figure>
+<h3 id="4-主键和唯一索引的区别"><a href="#4-主键和唯一索引的区别" class="headerlink" title="4.主键和唯一索引的区别"></a>4.主键和唯一索引的区别</h3><p>　　主键是一种约束，唯一索引是一种索引，两者在本质上是不同的。主键创建后一定包含一个唯一性索引，唯一性索引并不一定就是主键。唯一性索引列允许空值，而主键列不允许为空值。主键列在创建时，已经默认为空值 + 唯一索引了。</p>
+<p>　　主键可以被其他表引用为外键，而唯一索引不能。一个表最多只能创建一个主键，但可以创建多个唯一索引。主键更适合那些不容易更改的唯一标识，如自动递增列、身份证号等。</p>
+<p>　　在 RBO 模式下，主键的执行计划优先级要高于唯一索引。 两者可以提高查询的速度。</p>
+<h2 id="少用SELECT"><a href="#少用SELECT" class="headerlink" title="少用SELECT *"></a>少用SELECT *</h2><p>　　使用select时，应该取我们要用的数据，而不是全取。因为当我们select *时，会增加web服务器的负担，增加网络传输的负载，查询速度自然就下降 。</p>
+<h2 id="EXPLAIN-SELECT"><a href="#EXPLAIN-SELECT" class="headerlink" title="EXPLAIN SELECT"></a>EXPLAIN SELECT</h2><p>　　explain显示了mysql如何使用索引来处理select语句以及连接表。可以帮助选择更好的索引和写出更优化的查询语句。主要用法就是在select前加上explain即可。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPLAIN <span class="keyword">SELECT</span> [查找字段名] <span class="keyword">FROM</span> tab_name ...</span><br></pre></td></tr></table></figure>
+
+<p>　　在 EXPLAIN 的帮助下，你就知道什么时候该给表添加索引，以使用索引来查找记录从而让 SELECT 运行更快。</p>
+<h2 id="开启查询缓存"><a href="#开启查询缓存" class="headerlink" title="开启查询缓存"></a>开启查询缓存</h2><p>　　大多数的MySQL服务器都开启了查询缓存。这是提高性最有效的方法之一，而且这是被MySQL的数据库引擎处理的。当有很多相同的查询被执行了多次的时候，这些查询结果会被放到一个缓存中，这样，后续的相同的查询就不用操作表而直接访问缓存结果了。</p>
+<p>　　第一步把query_cache_type设置为ON，然后查询系统变量have_query_cache是否可用：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;have_query_cache&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>　　之后，分配内存大小给查询缓存，控制缓存查询结果的最大值。相关操作在配置文件中进行修改。</p>
+<h2 id="使用NOT-NULL"><a href="#使用NOT-NULL" class="headerlink" title="使用NOT NULL"></a>使用NOT NULL</h2><p>　　很多表都包含可为 NULL （空值） 的列，即使应用程序井不需要保存 NULL 也是如此 ，这是因为可为 NULL 是列的默认属性。通常情况下最好指定列为 NOT NULL，除非真 的需要存储 NULL 值。<br>如果查询中包含可为 NULL 的列，对 MySQL 来说更难优化 ，因为可为 NULL 的列使 得索引、索引统计和值比较都更复杂 。可为NULL 的列会使用更多的存储空间 ，在 MySQL 里也需要特殊处理 。当可为NULL 的列被索引时，每个索引记录需要一个额外的字节，在 MyISAM 里甚至还可能导致固定大小的索引 （例如只有一个整数列的索引）变成可变大小的索引。</p>
+<p>　　通常把可为NULL的列改为NOT NULL带来的性能提升比较小，所以（调优时）没有必要首先在现有schema中查找并修改掉这种情况，除非确定这会导致问题。但是，如果计划在列上建索引，就应该尽量避免设计成可为 NULL 的列。当然也有例外，例如值得一提的是，InnoDB 使用单独的位 （bit ）存储NULL值，所以对于稀疏数据由有很好的空间效率 。但这一点不适用于MyISAM 。</p>
+<h2 id="存储引擎的选择"><a href="#存储引擎的选择" class="headerlink" title="存储引擎的选择"></a>存储引擎的选择</h2><p>　　对于如何选择MyISAM和InnoDB,如果你需要事务处理或是外键，那么InnoDB可能是比较好的方式。如果你需要全文索引，那么通常来说MyISAM是好的选择，因为这是系统内建的，然而，我们其实并不会经常地去测试两百万行记录。所以，就算是慢一点，我们可以通过使用Sphinx从InnoDB中获得全文索引。</p>
+<p>　　数据的大小，是一个影响你选择什么样存储引擎的重要因素，大尺寸的数据集趋向于选择InnoDB方式，因为其支持事务处理和故障恢复。数据库的在小决定了故障恢复的时间长短，InnoDB可以利用事务日志进行数据恢复，这会比较快。而MyISAM可能会需要几个小时甚至几天来干这些事，InnoDB只需要几分钟。</p>
+<p>　　你操作数据库表的习惯可能也会是一个对性能影响很大的因素。比如： COUNT() 在 MyISAM表中会非常快，而在InnoDB表下可能会很痛苦。而主键查询则在InnoDB下会相当相当的快，但需要小心的是如果我们的主键太长了也会导致性能问题。大批的inserts语句在MyISAM下会快一些，但是updates在InnoDB 下会更快一些——尤其在并发量大的时候。</p>
+<p>　　所以，到底你检使用哪一个呢？根据经验来看，如果是一些小型的应用或项目，那么MyISAM也许会更适合。当然，在大型的环境下使用MyISAM也会有很大成功的时候，但却不总是这样的。如果你正在计划使用一个超大数据量的项目，而且需要事务处理或外键支持，那么你真的应该直接使用InnoDB方式。但需要记住InnoDB的表需要更多的内存和存储，转换100GB的MyISAM 表到InnoDB 表可能会让你有非常坏的体验。</p>
+<h2 id="避免在-where-子句中使用-or-来连接"><a href="#避免在-where-子句中使用-or-来连接" class="headerlink" title="避免在 where 子句中使用 or 来连接"></a>避免在 where 子句中使用 or 来连接</h2><p>　　如果一个字段有索引，一个字段没有索引，将导致引擎放弃使用索引而进行全表扫描，如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> num<span class="operator">=</span><span class="number">10</span> <span class="keyword">or</span> name <span class="operator">=</span> <span class="string">&#x27;admin&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>　　可以这样查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> num <span class="operator">=</span> <span class="number">10</span></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;admin&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="避免大数据量返回"><a href="#避免大数据量返回" class="headerlink" title="避免大数据量返回"></a>避免大数据量返回</h2><p>这里要考虑使用limit，来限制返回的数据量，如果每次返回大量自己不需要的数据，也会降低查询速度。</p>
+<h2 id="where子句优化"><a href="#where子句优化" class="headerlink" title="where子句优化"></a>where子句优化</h2><p>　　where 子句中使用参数，会导致全表扫描,因为SQL只有在运行时才会解析局部变量，但优化程序不能将访问计划的选择推迟到运行时；它必须在编译时进行选择。然 而，如果在编译时建立访问计划，变量的值还是未知的，因而无法作为索引选择的输入项。</p>
+<p>　　应尽量避免在 where 子句中对字段进行表达式操作，避免在where子句中对字段进行函数操作这将导致引擎放弃使用索引而进行全表扫描。<strong>不要在 where 子句中的“=”左边进行函数、算术运算或其他表达式运算</strong>，否则系统将可能无法正确使用索引。</p>
 
       
 
@@ -367,18 +329,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/07/Concurrenthashmap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/07/MySQL%E4%B8%BB%E9%94%AE%E5%92%8C%E5%A4%96%E9%94%AE%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Concurrenthashmap的实现原理分析
+          MySQL主键和外键使用
         
       </div>
     </a>
   
   
-    <a href="/2021/03/06/%E4%B8%A4%E5%88%86%E9%92%9F%E8%AE%A9%E4%BD%A0%E6%98%8E%E7%99%BD%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">两分钟让你明白什么是面向对象编程</div>
+    <a href="/2021/03/07/Concurrenthashmap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Concurrenthashmap的实现原理分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -405,7 +367,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">1.1.</span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.主键索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%99%AE%E9%80%9A%E7%B4%A2%E5%BC%95"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.普通索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.唯一索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%BB%E9%94%AE%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.4.</span> <span class="toc-text">4.主键和唯一索引的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%91%E7%94%A8SELECT"><span class="toc-number">1.2.</span> <span class="toc-text">少用SELECT *</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EXPLAIN-SELECT"><span class="toc-number">1.3.</span> <span class="toc-text">EXPLAIN SELECT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.</span> <span class="toc-text">开启查询缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8NOT-NULL"><span class="toc-number">1.5.</span> <span class="toc-text">使用NOT NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">1.6.</span> <span class="toc-text">存储引擎的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E5%9C%A8-where-%E5%AD%90%E5%8F%A5%E4%B8%AD%E4%BD%BF%E7%94%A8-or-%E6%9D%A5%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.7.</span> <span class="toc-text">避免在 where 子句中使用 or 来连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%87%8F%E8%BF%94%E5%9B%9E"><span class="toc-number">1.8.</span> <span class="toc-text">避免大数据量返回</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#where%E5%AD%90%E5%8F%A5%E4%BC%98%E5%8C%96"><span class="toc-number">1.9.</span> <span class="toc-text">where子句优化</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

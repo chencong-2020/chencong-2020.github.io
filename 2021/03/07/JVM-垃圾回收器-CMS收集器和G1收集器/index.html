@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java常见面试题 | Hexo</title>
+  <title>JVM 垃圾回收器 CMS收集器和G1收集器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Java常见面试题">
-<meta property="og:url" content="http://example.com/2021/03/06/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:title" content="JVM 垃圾回收器 CMS收集器和G1收集器">
+<meta property="og:url" content="http://example.com/2021/03/07/JVM-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8-CMS%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-03-06T03:20:06.000Z">
-<meta property="article:modified_time" content="2021-03-07T01:38:14.176Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190222222650784.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190222222328910.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190222222515855.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019022222254929.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190222222845773.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190222222925966.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190222222954248.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-03-07T07:28:52.000Z">
+<meta property="article:modified_time" content="2021-03-07T07:59:21.347Z">
 <meta property="article:author" content="陈聪">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190222222650784.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -158,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java常见面试题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JVM-垃圾回收器-CMS收集器和G1收集器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java常见面试题
+      JVM 垃圾回收器 CMS收集器和G1收集器
     </h1>
   
 
         
-        <a href="/2021/03/06/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-03-06T03:20:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
+        <a href="/2021/03/07/JVM-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8-CMS%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2021-03-07T07:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -183,87 +191,78 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 
+<h2 id="分代回收算法"><a href="#分代回收算法" class="headerlink" title="分代回收算法"></a>分代回收算法</h2><p>在我们的经验之中，大部分的对象在生成之后就会马上变成垃圾，很少有对象能够或很久。这个就是我们将对象分成新生代和老年代的依据。在不同的代采用不同的收集是算法，从而提高内存的利用率。</p>
+<p>       我们的分区一般如下图所示，一个生成空间，两个大小相等的幸存空间，一个老年代空间。而针对它们的回收，我们的叫法也不相同。</p>
+<p>        新生代GC（minor GC）：指发生在新生代的垃圾回收动作，因为Java对象大多都具备朝生夕灭的特点，所以minor GC发生得非常频繁，一般回收速度也比较块。</p>
+<p>        老年代GC（Major GC/Full GC）：指发生在老年代的GC，它的速度会比minor GC慢很多。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190222222650784.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70"></p>
+<h2 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h2><p> 前面我们介绍的所有回收算法都是为实现垃圾回收器服务的，而垃圾回收器就是内存回收的具体实现。目前HotSpot虚拟机用到的垃圾回收器如下图所示。注意只有两个回收器之间有连线才能配合使用。</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190222222328910.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70"></p>
+<h3 id="串行垃圾回收器"><a href="#串行垃圾回收器" class="headerlink" title="串行垃圾回收器"></a>串行垃圾回收器</h3><p> 整体来说，并行垃圾回收相对于串行，是通过多线程运行垃圾收集的。也会stop-the-world。适合Server模式以及多CPU环境。一般会和jdk1.5之后出现的CMS搭配使用。并行的垃圾回收器有以下几种：</p>
+<p>        ParNew：Serial收集器的多线程版本，默认开启的收集线程数和cpu数量一样，运行数量可以通过修改ParallelGCThreads设定。用于新生代收集，复制算法。使用-XX:+UseParNewGC,和Serial Old收集器组合进行内存回收。如下图所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190222222515855.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70"></p>
+<p><strong>Parallel Scavenge</strong>: <strong>关注吞吐量,吞吐量优先</strong>，<strong>吞吐量=代码运行时间/(代码运行时间+垃圾收集时间),也就是高效率利用cpu时间，尽快完成程序的运算</strong>,任务可以设置最大停顿时间MaxGCPauseMillis以及，吞吐量大小GCTimeRatio。如果设置了-XX:+UseAdaptiveSizePolicy参数，则随着GC,会动态调整新生代的大小，Eden,Survivor比例等，以提供最合适的停顿时间或者最大的吞吐量。用于新生代收集，复制算法。通过-XX:+UseParallelGC参数，Server模式下默认提供了其和SerialOld进行搭配的分代收集方式。</p>
+<p>  Parllel Old：Parallel Scavenge的老年代版本。JDK 1.6开始提供的。在此之前Parallel Scavenge的地位也很尴尬，而有了Parllel Old之后，通过-XX:+UseParallelOldGC参数使用Parallel Scavenge + Parallel Old器组合进行内存回收，如下图所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/2019022222254929.jpeg"></p>
+<h3 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a><strong>CMS收集器</strong></h3><p>CMS（Concurrent Mark Sweep）收集器是一种以获得<strong>最短回收停顿时间</strong>为目标的收集器。从名字就能知道其是基于标记-清除算法的。但是它比一般的标记-清除算法要复杂一些，分为以下4个阶段：</p>
+<ul>
+<li><p><strong>初始标记</strong>：标记一下GC Roots能直接关联到的对象，会“Stop The World”。</p>
+</li>
+<li><p><strong>并发标记</strong>：GC Roots Tracing，可以和用户线程并发执行。</p>
+</li>
+<li><p><strong>重新标记</strong>：标记期间产生的对象存活的再次判断，修正对这些对象的标记，执行时间相对并发标记短，会“Stop The World”。</p>
+</li>
+<li><p><strong>并发清除</strong>：清除对象,可以和用户线程并发执行。</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190222222845773.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70"></p>
+<p>由于垃圾回收线程可以和用户线程同时运行，也就是说它是并发的，那么它会<strong>对CPU的资源非常敏感</strong>，<strong>总吞吐量会降低</strong>，CMS默认启动的回收线程数是（CPU数量+3）/ 4，当CPU&lt;4个时，并发回收是垃圾收集线程就不会少于25%，而且随着CPU减少而增加，这样会影响用户线程的执行。而且由于它是基于标记-清除算法的，那么就<strong>无法避免空间碎片</strong>的产生。<strong>CMS收集器无法处理浮动垃圾（Floating Garbage）</strong>，可能出现“Concurrent Mode Failure”失败而导致另一次Full GC的产生。</p>
+<p>所谓<strong>浮动垃圾</strong>，在CMS并发清理阶段用户线程还在运行着，伴随程序运行自然还会有新的垃圾不断产生，这一部分垃圾出现在标记过程之后，CMS无法在当次收集中处理掉它们，只能留待下一次GC时再清理掉。</p>
+<h3 id="G1垃圾收集器"><a href="#G1垃圾收集器" class="headerlink" title="G1垃圾收集器"></a><strong>G1垃圾收集器</strong></h3><p> 把G1单独拿出来的原因是其比较复杂，在JDK 1.7确立是项目目标，在JDK 7u2版本之后发布，并在JDK 9中成为了默认的垃圾回收器。通过“-XX:+UseG1GC”启动参数即可指定使用G1 GC。</p>
+<p>G1从<strong>整体看还是基于标记-清除算法</strong>的，但是<strong>局部上是基于复制算法的</strong>。这样就意味者它空间整合做的比较好，因为不会产生空间碎片。G1还是并发与并行的，它能够充分利用多CPU、多核的硬件环境来缩短“stop the world”的时间。G1还是分代收集的，但是G1不再像上文所述的垃圾收集器，需要分代配合不同的垃圾收集器，因为G1中的垃圾收集区域是“分区”（Region）的。G1的分代收集和以上垃圾收集器不同的就是除了有年轻代的ygc，全堆扫描的full GC外，还有包含所有年轻代以及部分老年代Region的Mixed GC。G1还可预测停顿，通过调整参数，制定垃圾收集的最大停顿时间。</p>
+<p>G1收集器的运作大致可以分为以下步骤：<strong>初始标记、并发标记、最终标记、筛选回收</strong>。其中<strong>初始标记阶段</strong>仅仅只是标记一下GC Roots能直接关联到的对象，并且修改TAMS（Next Top at Mark Set）的值，让下一个阶段用户程序并发运行时，能在正确可用的Region中创建新对象，这个阶段需要STW，但耗时很短。<strong>并发标记阶段</strong>是从GC Roots开始对堆中对象进行可达性分析，找到存活的对象，这阶段耗时较长，但是可以和用户线程并发运行。<strong>最终标记</strong>阶段则是为了修正在并发标记期间因用户程序继续运行而导致标记产生变化的那一部分标记记录，虚拟机将这段时间对象变化记录在线程Remembered Set Logs里面，最终标记需要把Remembered Set Logs的数据合并到Remembered Sets中，这阶段需要暂停线程，但是可并行执行。最后的<strong>筛选回收阶段</strong>首先对各个Region的回收价值和成本进行排序，根据用户所期望的GC停顿时间来确定回收计划。G1收集器运行示意图如下图所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190222222925966.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70"></p>
+<p><strong>G1分区的概念</strong></p>
+<p>       G1的堆区在分代的基础上，引入分区的概念。G1将堆分成了若干Region,以下和”分区”代表同一概念。（这些分区不要求是连续的内存空间）Region的大小可以通过G1HeapRegionSize参数进行设置，其必须是2的幂，范围允许为1Mb到32Mb。 JVM的会基于堆内存的初始值和最大值的平均数计算分区的尺寸，平均的堆尺寸会分出约2000个Region。分区大小一旦设置，则启动之后不会再变化。如下图简单画了下G1分区模型。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190222222954248.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l2YV9icm90aGVy,size_16,color_FFFFFF,t_70"></p>
+<p>Eden regions(年轻代-Eden区)</p>
+<p>Survivor regions(年轻代-Survivor区)</p>
+<p>Old regions（老年代）</p>
+<p>Humongous regions（巨型对象区域）</p>
+<p>Free regions（未分配区域，也会叫做可用分区）-上图中空白的区域</p>
+<p>       G1中的巨型对象是指，占用了Region容量的50%以上的一个对象。Humongous区，就专门用来存储巨型对象。如果一个H区装不下一个巨型对象，则会通过连续的若干H分区来存储。因为巨型对象的转移会影响GC效率，所以并发标记阶段发现巨型对象不再存活时，会将其直接回收。ygc也会在某些情况下对巨型对象进行回收。</p>
+<p>       分区可以有效利用内存空间，因为收集整体是使用“标记-整理”，Region之间基于“复制”算法，GC后会将存活对象复制到可用分区（未分配的分区），所以不会产生空间碎片。</p>
+<p><strong>G1 GC的分类和过程</strong></p>
+<p>        JDK10 之前的G1中的GC只有Young GC,Mixed GC。Full GC处理会交给单线程的Serial Old垃圾收集器。</p>
+<p><strong>Young GC年轻代收集</strong></p>
+<p>       在分配一般对象（非巨型对象）时，当所有Eden region使用达到最大阀值并且无法申请足够内存时，会触发一次Young GC。每次Young GC会回收所有Eden以及Survivor区，并且将存活对象复制到Old区以及另一部分的Survivor区。到Old区的标准就是在PLAB中得到的计算结果。因为Young GC会进行根扫描，所以会stop the world。</p>
+<p>Young GC的回收过程如下：</p>
+<p>1、根扫描,跟CMS类似，Stop the world，扫描GC Roots对象。</p>
+<p>2、处理Dirty card,更新RSet.</p>
+<p>3、扫描RSet,扫描RSet中所有old区对扫描到的young区或者survivor去的引用。</p>
+<p>4、拷贝扫描出的存活的对象到survivor2/old区</p>
+<p>5、处理引用队列，软引用，弱引用，虚引用</p>
+<p><strong>Mix GC混合收集</strong></p>
+<p>       Mixed GC是G1 GC特有的，跟Full GC不同的是Mixed GC只回收部分老年代的Region。哪些old region能够放到CSet里面，有很多参数可以控制。比如G1HeapWastePercent参数，在一次young GC之后，可以允许的堆垃圾百占比，超过这个值就会触发mixed GC。</p>
+<p>      G1MixedGCLiveThresholdPercent参数控制的，old代分区中的存活对象比，达到阀值时，这个old分区会被放入CSet。</p>
+<p>      Mixed GC一般会发生在一次Young GC后面,为了提高效率，Mixed GC会复用Young GC的全局的根扫描结果，因为这个Stop the world过程是必须的，整体上来说缩短了暂停时间。</p>
+<p>        Mix GC的回收过程可以理解为Young GC后附加的全局concurrent marking，全局的并发标记主要用来处理old区（包含H区）的存活对象标记，过程如下：</p>
 <ol>
-<li><p>抽象类（abstract class）和接口（interface）有什么异同？ </p>
-<p> 答：抽象类和接口都不能够实例化，但可以定义抽象类和接口类型的引用。一个类如果继承了某个抽象类或者实现了某个接口都需要对其中的抽象方法全部进行实现，否则该类仍然需要被声明为抽象类。接口比抽象类更加抽象，因为<strong>抽象类中可以定义构造器</strong>，可以<strong>有抽象方法和具体方法</strong>，而接口中<strong>不能定义构造器</strong>而且其中的方法<strong>全部都是抽象方法</strong>。<strong>抽象类中的成员可以是private、默认、protected、public的</strong>，<strong>而接口中的成员全都是public的</strong>。抽象类中可以定义<strong>成员变量</strong>，而接口中定义的成员变量实际上都是<strong>常量</strong>。有抽象方法的类必须被声明为抽象类，而抽象类未必要有抽象方法。</p>
+<li><p>初始标记（Initial Mark）。标记GC Roots，会STW,一般会复用Young GC的暂停时间。如前文所述，初始标记会设置好所有分区的NTAMS值。</p>
 </li>
-<li><p>抽象的（abstract）方法是否可同时是静态的（static）,是否可同时是本地方法（native），是否可同时被synchronized修饰？  </p>
-<p> 答：都不能。抽象方法需要子类重写，而静态的方法是无法被重写的，因此二者是矛盾的。本地方法是由本地代码（如C代码）实现的方法，而抽象方法是没有实现的，也是矛盾的。synchronized和方法的实现细节有关，抽象方法不涉及实现细节，因此也是相互矛盾的。</p>
+<li><p>根分区扫描（Root Region Scan）。这个阶段GC的线程可以和应用线程并发运行。其主要扫描初始标记以及之前Young GC对象转移到的Survivor分区，并标记Survivor区中引用的对象。所以此阶段的Survivor分区也叫根分区（Root Region）。</p>
 </li>
-<li><p>是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？</p>
-<p> 答：不可以，静态方法只能访问静态成员，因为非静态方法的调用要先创建对象，在调用静态方法时可能对象并没有被初始化。</p>
+<li><p>并发标记（Concurrent Mark）。会并发标记所有非完全空闲的分区的存活对象，也即使用了SATB算法，标记各个分区。</p>
 </li>
-<li><p>String s = new String(“xyz”);创建了几个字符串对象？  </p>
-<p> 答：两个对象，一个是静态区的”xyz”，一个是用new创建在堆上的对象。</p>
+<li><p>最终标记（Remark）。主要处理SATB缓冲区，以及并发标记阶段未标记到的漏网之鱼（存活对象），会STW,可以参考上文的SATB处理。</p>
 </li>
-<li><p>指出下面程序的运行结果。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">static</span> &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">static</span> &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">                A ab = <span class="keyword">new</span> B();</span><br><span class="line">                ab = <span class="keyword">new</span> B();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    ````</span><br><span class="line">    答：执行结果：1a2b2b。创建对象时构造器的调用顺序是：先初始化静态成员，然后调用父类构造器，再初始化非静态成员，最后调用自身构造器。</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> 如何实现字符串的反转及替换？  </span><br><span class="line"></span><br><span class="line">    答：方法很多，可以自己写实现也可以使用String或StringBuffer/StringBuilder中的方法。有一道很常见的面试题是用递归实现字符串反转，代码如下所示：   </span><br><span class="line">    ```java</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">reverse</span><span class="params">(String originStr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(originStr == <span class="keyword">null</span> || originStr.length() &lt;= <span class="number">1</span>) </span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> originStr;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> reverse(originStr.substring(<span class="number">1</span>)) + originStr.charAt(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>列出一些你常见的运行时异常？</p>
-<p> 答：</p>
-<ul>
-<li>ArithmeticException（算术异常）</li>
-<li>ClassCastException （类转换异常）</li>
-<li>IllegalArgumentException （非法参数异常）</li>
-<li>IndexOutOfBoundsException （下标越界异常）</li>
-<li>NullPointerException （空指针异常）</li>
-<li>SecurityException （安全异常）</li>
-</ul>
+<li><p>清除阶段（Clean UP）。上述SATB也提到了，会进行bitmap的swap，以及PTAMS,NTAMS互换。整理堆分区，调整相应的RSet（比如如果其中记录的Card中的对象都被回收，则这个卡片的也会从RSet中移除）,如果识别到了完全空的分区，则会清理这个分区的RSet。这个过程会STW。</p>
 </li>
 </ol>
-<ol start="8">
-<li><p>写一个方法，输入一个文件名和一个字符串，统计这个字符串在这个文件中出现的次数。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 工具类中的方法都是静态方式访问的因此将构造器私有不允许创建对象(绝对好习惯)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 统计给定文件中给定字符串的出现次数</span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> filename  文件名</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> word 字符串</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 字符串在文件中出现的次数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">countWordInFile</span><span class="params">(String filename, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">try</span> (FileReader fr = <span class="keyword">new</span> FileReader(filename)) &#123;</span><br><span class="line">            <span class="keyword">try</span> (BufferedReader br = <span class="keyword">new</span> BufferedReader(fr)) &#123;</span><br><span class="line">                String line = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">while</span> (line.length() &gt;= word.length() &amp;&amp; (index = line.indexOf(word)) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                        counter++;</span><br><span class="line">                        line = line.substring(index + word.length());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> counter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>如何用Java代码列出一个目录下所有的文件？</p>
-<p> 如果只要求列出当前文件夹下的文件，代码如下所示：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">&quot;/Users/Hao/Downloads&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</span><br><span class="line">            <span class="keyword">if</span>(temp.isFile()) &#123;</span><br><span class="line">                System.out.println(temp.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 如果需要对文件夹继续展开，代码如下所示：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        showDirectory(<span class="keyword">new</span> File(<span class="string">&quot;/Users/Hao/Downloads&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showDirectory</span><span class="params">(File f)</span> </span>&#123;</span><br><span class="line">        _walkDirectory(f, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">_walkDirectory</span><span class="params">(File f, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(f.isDirectory()) &#123;</span><br><span class="line">            <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</span><br><span class="line">                _walkDirectory(temp, level + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; level - <span class="number">1</span>; i++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(f.getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>阐述JDBC操作数据库的步骤。</p>
-<p>答：下面的代码以连接本机的Oracle数据库为例，演示JDBC操作数据库的步骤。</p>
-<ul>
-<li><p>加载驱动。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;oracle.jdbc.driver.OracleDriver&quot;</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建连接。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection con = DriverManager.getConnection(<span class="string">&quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;</span>, <span class="string">&quot;scott&quot;</span>, <span class="string">&quot;tiger&quot;</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建语句。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement ps = con.prepareStatement(<span class="string">&quot;select * from emp where sal between ? and ?&quot;</span>);</span><br><span class="line">ps.setInt(<span class="number">1</span>, <span class="number">1000</span>);</span><br><span class="line">ps.setInt(<span class="number">2</span>, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行语句。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = ps.executeQuery();</span><br></pre></td></tr></table></figure></li>
-<li><p>处理结果。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(rs.next()) &#123;</span><br><span class="line">    System.out.println(rs.getInt(<span class="string">&quot;empno&quot;</span>) + <span class="string">&quot; - &quot;</span> + rs.getString(<span class="string">&quot;ename&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>关闭资源。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(con != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            con.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>提示：关闭外部资源的顺序应该和打开的顺序相反，也就是说先关闭ResultSet、再关闭Statement、在关闭Connection。上面的代码只关闭了Connection（连接），虽然通常情况下在关闭连接时，连接上创建的语句和打开的游标也会关闭，但不能保证总是如此，因此应该按照刚才说的顺序分别关闭。此外，第一步加载驱动在JDBC 4.0中是可以省略的（自动从类路径中加载驱动），但是我们建议保留。</p>
-</blockquote>
-</li>
-<li><p>使用JDBC操作数据库时，如何提升读取数据的性能？如何提升更新数据的性能？</p>
-<p>答：要提升读取数据的性能，可以指定通过结果集（ResultSet）对象的setFetchSize()方法指定每次抓取的记录数（典型的空间换时间策略）；要提升更新数据的性能可以使用PreparedStatement语句构建批处理，将若干SQL语句置于一个批处理中执行。</p>
-</li>
-<li><p>在进行数据库编程时，连接池有什么作用？</p>
-<p>答：由于创建连接和释放连接都有很大的开销（尤其是数据库服务器不在本地时，每次建立连接都需要进行TCP的三次握手，释放连接需要进行TCP四次握手，造成的开销是不可忽视的），为了提升系统访问数据库的性能，可以事先创建若干连接置于连接池中，需要时直接从连接池获取，使用结束时归还连接池而不必关闭连接，从而避免频繁创建和释放连接所造成的开销，这是典型的用空间换取时间的策略（浪费了空间存储连接，但节省了创建和释放连接的时间）。池化技术在Java开发中是很常见的，在使用线程时创建线程池的道理与此相同。基于Java的开源数据库连接池主要有：C3P0、Proxool、DBCP、BoneCP、Druid等。</p>
-</li>
-<li><p>如何通过反射创建对象？</p>
-<p>答：</p>
-<ul>
-<li>方法1：通过类对象调用newInstance()方法，例如：String.class.newInstance()</li>
-<li>方法2：通过类对象的getConstructor()或getDeclaredConstructor()方法获得构造器（Constructor）对象并调用其newInstance()方法创建对象，例如：String.class.getConstructor(String.class).newInstance(“Hello”);</li>
-</ul>
-</li>
-<li><p>get和post请求的区别？</p>
-<p>答：</p>
-<p>①get请求用来从服务器上获得资源，而post是用来向服务器提交数据；</p>
-<p>②get将表单中数据按照name=value的形式，添加到action 所指向的URL 后面，并且两者使用”?”连接，而各个变量之间使用”&amp;”连接；post是将表单中的数据放在HTTP协议的请求头或消息体中，传递到action所指向URL；</p>
-<p>③get传输的数据要受到URL长度限制（1024字节）；而post可以传输大量的数据，上传文件通常要使用post方式；<br>④使用get时参数会显示在地址栏上，如果这些数据不是敏感数据，那么可以使用get；对于敏感数据还是应用使用post；</p>
-<p>⑤get使用MIME类型application/x-www-form-urlencoded的URL编码（也叫百分号编码）文本的格式传递参数，保证被传送的参数由遵循规范的文本组成，例如一个空格的编码是”%20”。</p>
-</li>
-</ol>
+<p>清除阶段之后，还会对存活对象进行转移（复制算法），转移到其他可用分区，所以当前的分区就变成了新的可用分区。复制转移主要是为了解决分区内的碎片问题。</p>
+<p>Full GC</p>
+<p>G1在对象复制/转移失败或者没法分配足够内存（比如巨型对象没有足够的连续分区分配）时，会触发Full GC。Full GC使用的是stop the world的单线程的Serial Old模式,所以一旦触发Full GC则会STW应用线程，并且执行效率很慢。JDK 8版本的G1是不提供Full GC的处理的。对于G1 GC的优化，很大的目标就是没有Full GC。</p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/iva_brother/article/details/87886525">https://blog.csdn.net/iva_brother/article/details/87886525</a></p>
 
       
 
@@ -367,18 +366,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/07/Concurrenthashmap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Concurrenthashmap的实现原理分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/03/06/%E4%B8%A4%E5%88%86%E9%92%9F%E8%AE%A9%E4%BD%A0%E6%98%8E%E7%99%BD%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">两分钟让你明白什么是面向对象编程</div>
+    <a href="/2021/03/07/%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">聚簇索引和非聚簇索引</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -405,7 +395,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">分代回收算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">垃圾回收器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E8%A1%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">串行垃圾回收器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMS%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">CMS收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">G1垃圾收集器</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

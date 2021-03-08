@@ -6,15 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java常见面试题 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Java常见面试题">
-<meta property="og:url" content="http://example.com/2021/03/06/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-03-06T03:20:06.000Z">
-<meta property="article:modified_time" content="2021-03-07T01:38:14.176Z">
 <meta property="article:author" content="陈聪">
 <meta name="twitter:card" content="summary">
   
@@ -158,20 +156,22 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java常见面试题" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-三次握手四次挥手" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Java常见面试题
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/05/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/">三次握手四次挥手</a>
     </h1>
   
 
         
-        <a href="/2021/03/06/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-03-06T03:20:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
+        <a href="/2021/03/05/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" class="archive-article-date">
+  	<time datetime="2021-03-05T08:27:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-05</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -181,123 +181,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
-
-<ol>
-<li><p>抽象类（abstract class）和接口（interface）有什么异同？ </p>
-<p> 答：抽象类和接口都不能够实例化，但可以定义抽象类和接口类型的引用。一个类如果继承了某个抽象类或者实现了某个接口都需要对其中的抽象方法全部进行实现，否则该类仍然需要被声明为抽象类。接口比抽象类更加抽象，因为<strong>抽象类中可以定义构造器</strong>，可以<strong>有抽象方法和具体方法</strong>，而接口中<strong>不能定义构造器</strong>而且其中的方法<strong>全部都是抽象方法</strong>。<strong>抽象类中的成员可以是private、默认、protected、public的</strong>，<strong>而接口中的成员全都是public的</strong>。抽象类中可以定义<strong>成员变量</strong>，而接口中定义的成员变量实际上都是<strong>常量</strong>。有抽象方法的类必须被声明为抽象类，而抽象类未必要有抽象方法。</p>
-</li>
-<li><p>抽象的（abstract）方法是否可同时是静态的（static）,是否可同时是本地方法（native），是否可同时被synchronized修饰？  </p>
-<p> 答：都不能。抽象方法需要子类重写，而静态的方法是无法被重写的，因此二者是矛盾的。本地方法是由本地代码（如C代码）实现的方法，而抽象方法是没有实现的，也是矛盾的。synchronized和方法的实现细节有关，抽象方法不涉及实现细节，因此也是相互矛盾的。</p>
-</li>
-<li><p>是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？</p>
-<p> 答：不可以，静态方法只能访问静态成员，因为非静态方法的调用要先创建对象，在调用静态方法时可能对象并没有被初始化。</p>
-</li>
-<li><p>String s = new String(“xyz”);创建了几个字符串对象？  </p>
-<p> 答：两个对象，一个是静态区的”xyz”，一个是用new创建在堆上的对象。</p>
-</li>
-<li><p>指出下面程序的运行结果。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">static</span> &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">static</span> &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">                A ab = <span class="keyword">new</span> B();</span><br><span class="line">                ab = <span class="keyword">new</span> B();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    ````</span><br><span class="line">    答：执行结果：1a2b2b。创建对象时构造器的调用顺序是：先初始化静态成员，然后调用父类构造器，再初始化非静态成员，最后调用自身构造器。</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> 如何实现字符串的反转及替换？  </span><br><span class="line"></span><br><span class="line">    答：方法很多，可以自己写实现也可以使用String或StringBuffer/StringBuilder中的方法。有一道很常见的面试题是用递归实现字符串反转，代码如下所示：   </span><br><span class="line">    ```java</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">reverse</span><span class="params">(String originStr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(originStr == <span class="keyword">null</span> || originStr.length() &lt;= <span class="number">1</span>) </span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> originStr;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> reverse(originStr.substring(<span class="number">1</span>)) + originStr.charAt(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>列出一些你常见的运行时异常？</p>
-<p> 答：</p>
-<ul>
-<li>ArithmeticException（算术异常）</li>
-<li>ClassCastException （类转换异常）</li>
-<li>IllegalArgumentException （非法参数异常）</li>
-<li>IndexOutOfBoundsException （下标越界异常）</li>
-<li>NullPointerException （空指针异常）</li>
-<li>SecurityException （安全异常）</li>
-</ul>
-</li>
-</ol>
-<ol start="8">
-<li><p>写一个方法，输入一个文件名和一个字符串，统计这个字符串在这个文件中出现的次数。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 工具类中的方法都是静态方式访问的因此将构造器私有不允许创建对象(绝对好习惯)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 统计给定文件中给定字符串的出现次数</span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> filename  文件名</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> word 字符串</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 字符串在文件中出现的次数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">countWordInFile</span><span class="params">(String filename, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">try</span> (FileReader fr = <span class="keyword">new</span> FileReader(filename)) &#123;</span><br><span class="line">            <span class="keyword">try</span> (BufferedReader br = <span class="keyword">new</span> BufferedReader(fr)) &#123;</span><br><span class="line">                String line = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">while</span> (line.length() &gt;= word.length() &amp;&amp; (index = line.indexOf(word)) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                        counter++;</span><br><span class="line">                        line = line.substring(index + word.length());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> counter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>如何用Java代码列出一个目录下所有的文件？</p>
-<p> 如果只要求列出当前文件夹下的文件，代码如下所示：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">&quot;/Users/Hao/Downloads&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</span><br><span class="line">            <span class="keyword">if</span>(temp.isFile()) &#123;</span><br><span class="line">                System.out.println(temp.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 如果需要对文件夹继续展开，代码如下所示：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        showDirectory(<span class="keyword">new</span> File(<span class="string">&quot;/Users/Hao/Downloads&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showDirectory</span><span class="params">(File f)</span> </span>&#123;</span><br><span class="line">        _walkDirectory(f, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">_walkDirectory</span><span class="params">(File f, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(f.isDirectory()) &#123;</span><br><span class="line">            <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</span><br><span class="line">                _walkDirectory(temp, level + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; level - <span class="number">1</span>; i++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(f.getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>阐述JDBC操作数据库的步骤。</p>
-<p>答：下面的代码以连接本机的Oracle数据库为例，演示JDBC操作数据库的步骤。</p>
-<ul>
-<li><p>加载驱动。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;oracle.jdbc.driver.OracleDriver&quot;</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建连接。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection con = DriverManager.getConnection(<span class="string">&quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;</span>, <span class="string">&quot;scott&quot;</span>, <span class="string">&quot;tiger&quot;</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建语句。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement ps = con.prepareStatement(<span class="string">&quot;select * from emp where sal between ? and ?&quot;</span>);</span><br><span class="line">ps.setInt(<span class="number">1</span>, <span class="number">1000</span>);</span><br><span class="line">ps.setInt(<span class="number">2</span>, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行语句。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = ps.executeQuery();</span><br></pre></td></tr></table></figure></li>
-<li><p>处理结果。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(rs.next()) &#123;</span><br><span class="line">    System.out.println(rs.getInt(<span class="string">&quot;empno&quot;</span>) + <span class="string">&quot; - &quot;</span> + rs.getString(<span class="string">&quot;ename&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>关闭资源。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(con != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            con.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>提示：关闭外部资源的顺序应该和打开的顺序相反，也就是说先关闭ResultSet、再关闭Statement、在关闭Connection。上面的代码只关闭了Connection（连接），虽然通常情况下在关闭连接时，连接上创建的语句和打开的游标也会关闭，但不能保证总是如此，因此应该按照刚才说的顺序分别关闭。此外，第一步加载驱动在JDBC 4.0中是可以省略的（自动从类路径中加载驱动），但是我们建议保留。</p>
-</blockquote>
-</li>
-<li><p>使用JDBC操作数据库时，如何提升读取数据的性能？如何提升更新数据的性能？</p>
-<p>答：要提升读取数据的性能，可以指定通过结果集（ResultSet）对象的setFetchSize()方法指定每次抓取的记录数（典型的空间换时间策略）；要提升更新数据的性能可以使用PreparedStatement语句构建批处理，将若干SQL语句置于一个批处理中执行。</p>
-</li>
-<li><p>在进行数据库编程时，连接池有什么作用？</p>
-<p>答：由于创建连接和释放连接都有很大的开销（尤其是数据库服务器不在本地时，每次建立连接都需要进行TCP的三次握手，释放连接需要进行TCP四次握手，造成的开销是不可忽视的），为了提升系统访问数据库的性能，可以事先创建若干连接置于连接池中，需要时直接从连接池获取，使用结束时归还连接池而不必关闭连接，从而避免频繁创建和释放连接所造成的开销，这是典型的用空间换取时间的策略（浪费了空间存储连接，但节省了创建和释放连接的时间）。池化技术在Java开发中是很常见的，在使用线程时创建线程池的道理与此相同。基于Java的开源数据库连接池主要有：C3P0、Proxool、DBCP、BoneCP、Druid等。</p>
-</li>
-<li><p>如何通过反射创建对象？</p>
-<p>答：</p>
-<ul>
-<li>方法1：通过类对象调用newInstance()方法，例如：String.class.newInstance()</li>
-<li>方法2：通过类对象的getConstructor()或getDeclaredConstructor()方法获得构造器（Constructor）对象并调用其newInstance()方法创建对象，例如：String.class.getConstructor(String.class).newInstance(“Hello”);</li>
-</ul>
-</li>
-<li><p>get和post请求的区别？</p>
-<p>答：</p>
-<p>①get请求用来从服务器上获得资源，而post是用来向服务器提交数据；</p>
-<p>②get将表单中数据按照name=value的形式，添加到action 所指向的URL 后面，并且两者使用”?”连接，而各个变量之间使用”&amp;”连接；post是将表单中的数据放在HTTP协议的请求头或消息体中，传递到action所指向URL；</p>
-<p>③get传输的数据要受到URL长度限制（1024字节）；而post可以传输大量的数据，上传文件通常要使用post方式；<br>④使用get时参数会显示在地址栏上，如果这些数据不是敏感数据，那么可以使用get；对于敏感数据还是应用使用post；</p>
-<p>⑤get使用MIME类型application/x-www-form-urlencoded的URL编码（也叫百分号编码）文本的格式传递参数，保证被传送的参数由遵循规范的文本组成，例如一个空格的编码是”%20”。</p>
-</li>
-</ol>
-
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
+          <a class="article-more-a" href="/2021/03/05/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/#more">more >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/支付宝收款码.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/微信收款码.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -306,84 +195,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/05/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/03/07/Concurrenthashmap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Concurrenthashmap的实现原理分析
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/03/06/%E4%B8%A4%E5%88%86%E9%92%9F%E8%AE%A9%E4%BD%A0%E6%98%8E%E7%99%BD%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">两分钟让你明白什么是面向对象编程</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -398,32 +219,153 @@
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
-                    </div>
-                </span>
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-堆、栈和方法区存储数据的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/05/%E5%A0%86%E3%80%81%E6%A0%88%E5%92%8C%E6%96%B9%E6%B3%95%E5%8C%BA%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8C%BA%E5%88%AB/">堆、栈和方法区存储数据的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/05/%E5%A0%86%E3%80%81%E6%A0%88%E5%92%8C%E6%96%B9%E6%B3%95%E5%8C%BA%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
+  	<time datetime="2021-03-05T07:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-05</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
+          <a class="article-more-a" href="/2021/03/05/%E5%A0%86%E3%80%81%E6%A0%88%E5%92%8C%E6%96%B9%E6%B3%95%E5%8C%BA%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8C%BA%E5%88%AB/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/05/%E5%A0%86%E3%80%81%E6%A0%88%E5%92%8C%E6%96%B9%E6%B3%95%E5%8C%BA%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
             </div>
         </div>
+        
         
     </div>
 </aside>
 
 
 
-  
-  
-  
 
   
-
+    <article id="post-架构设计-分布式-数据结构与算法面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/02/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-%E5%88%86%E5%B8%83%E5%BC%8F-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98/">架构设计&amp;分布式&amp;数据结构与算法面试题</a>
+    </h1>
   
 
+        
+        <a href="/2021/03/02/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-%E5%88%86%E5%B8%83%E5%BC%8F-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-03-02T07:10:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
+          <a class="article-more-a" href="/2021/03/02/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-%E5%88%86%E5%B8%83%E5%BC%8F-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/02/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-%E5%88%86%E5%B8%83%E5%BC%8F-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -451,8 +393,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

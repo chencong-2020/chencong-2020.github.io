@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java常见面试题 | Hexo</title>
+  <title>线程池类型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Java常见面试题">
-<meta property="og:url" content="http://example.com/2021/03/06/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:title" content="线程池类型">
+<meta property="og:url" content="http://example.com/2021/03/07/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-03-06T03:20:06.000Z">
-<meta property="article:modified_time" content="2021-03-07T01:38:14.176Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190423104753143.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190423110958685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3llMTcxODY=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190423111144317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3llMTcxODY=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190423111218910.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3llMTcxODY=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190423111311406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3llMTcxODY=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-03-07T03:04:57.000Z">
+<meta property="article:modified_time" content="2021-03-07T08:02:24.992Z">
 <meta property="article:author" content="陈聪">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190423104753143.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -158,20 +164,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java常见面试题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-线程池类型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java常见面试题
+      线程池类型
     </h1>
   
 
         
-        <a href="/2021/03/06/Java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-03-06T03:20:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
+        <a href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2021-03-07T03:04:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -183,87 +189,86 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 
-<ol>
-<li><p>抽象类（abstract class）和接口（interface）有什么异同？ </p>
-<p> 答：抽象类和接口都不能够实例化，但可以定义抽象类和接口类型的引用。一个类如果继承了某个抽象类或者实现了某个接口都需要对其中的抽象方法全部进行实现，否则该类仍然需要被声明为抽象类。接口比抽象类更加抽象，因为<strong>抽象类中可以定义构造器</strong>，可以<strong>有抽象方法和具体方法</strong>，而接口中<strong>不能定义构造器</strong>而且其中的方法<strong>全部都是抽象方法</strong>。<strong>抽象类中的成员可以是private、默认、protected、public的</strong>，<strong>而接口中的成员全都是public的</strong>。抽象类中可以定义<strong>成员变量</strong>，而接口中定义的成员变量实际上都是<strong>常量</strong>。有抽象方法的类必须被声明为抽象类，而抽象类未必要有抽象方法。</p>
-</li>
-<li><p>抽象的（abstract）方法是否可同时是静态的（static）,是否可同时是本地方法（native），是否可同时被synchronized修饰？  </p>
-<p> 答：都不能。抽象方法需要子类重写，而静态的方法是无法被重写的，因此二者是矛盾的。本地方法是由本地代码（如C代码）实现的方法，而抽象方法是没有实现的，也是矛盾的。synchronized和方法的实现细节有关，抽象方法不涉及实现细节，因此也是相互矛盾的。</p>
-</li>
-<li><p>是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？</p>
-<p> 答：不可以，静态方法只能访问静态成员，因为非静态方法的调用要先创建对象，在调用静态方法时可能对象并没有被初始化。</p>
-</li>
-<li><p>String s = new String(“xyz”);创建了几个字符串对象？  </p>
-<p> 答：两个对象，一个是静态区的”xyz”，一个是用new创建在堆上的对象。</p>
-</li>
-<li><p>指出下面程序的运行结果。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">static</span> &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">static</span> &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">                A ab = <span class="keyword">new</span> B();</span><br><span class="line">                ab = <span class="keyword">new</span> B();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    ````</span><br><span class="line">    答：执行结果：1a2b2b。创建对象时构造器的调用顺序是：先初始化静态成员，然后调用父类构造器，再初始化非静态成员，最后调用自身构造器。</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> 如何实现字符串的反转及替换？  </span><br><span class="line"></span><br><span class="line">    答：方法很多，可以自己写实现也可以使用String或StringBuffer/StringBuilder中的方法。有一道很常见的面试题是用递归实现字符串反转，代码如下所示：   </span><br><span class="line">    ```java</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">reverse</span><span class="params">(String originStr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(originStr == <span class="keyword">null</span> || originStr.length() &lt;= <span class="number">1</span>) </span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> originStr;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> reverse(originStr.substring(<span class="number">1</span>)) + originStr.charAt(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>列出一些你常见的运行时异常？</p>
-<p> 答：</p>
+<h2 id="1、newCachedThreadPool"><a href="#1、newCachedThreadPool" class="headerlink" title="1、newCachedThreadPool"></a><strong>1、newCachedThreadPool</strong></h2><p>作用：</p>
+<p>创建一个可根据需要创建新线程的线程池，但是在以前构造的线程可用时将重用它们，并在需要时使用提供的 ThreadFactory 创建新线程。</p>
+<p>特征： </p>
+<p>（1）线程池中数量没有固定，可达到最大值（Interger. MAX_VALUE） </p>
+<p>（2）线程池中的线程可进行缓存重复利用和回收（回收默认时间为1分钟） </p>
+<p>（3）当线程池中，没有可用线程，会重新创建一个线程</p>
+<p>创建方式： Executors.newCachedThreadPool();</p>
+<h2 id="2、newFixedThreadPool"><a href="#2、newFixedThreadPool" class="headerlink" title="2、newFixedThreadPool"></a><strong>2、newFixedThreadPool</strong></h2><p>作用：</p>
+<p>创建一个可重用固定线程数的线程池，以共享的无界队列方式来运行这些线程。在任意点，在大多数 nThreads 线程会处于处理任务的活动状态。如果在所有线程处于活动状态时提交附加任务，则在有可用线程之前，附加任务将在队列中等待。如果在关闭前的执行期间由于失败而导致任何线程终止，那么一个新线程将代替它执行后续的任务（如果需要）。在某个线程被显式地关闭之前，池中的线程将一直存在。</p>
+<p>特征：</p>
+<p>（1）线程池中的线程处于一定的量，可以很好的控制线程的并发量 </p>
+<p>（2）线程可以重复被使用，在显示关闭之前，都将一直存在 </p>
+<p>（3）超出一定量的线程被提交时候需在队列中等待</p>
+<p>创建方式： </p>
+<p>（1）Executors.newFixedThreadPool(int nThreads)；//nThreads为线程的数量 </p>
+<p>（2）Executors.newFixedThreadPool(int nThreads，ThreadFactory threadFactory)；//nThreads为线程的数量，threadFactory创建线程的工厂方式</p>
+<h2 id="3、newSingleThreadExecutor"><a href="#3、newSingleThreadExecutor" class="headerlink" title="3、newSingleThreadExecutor"></a><strong>3、newSingleThreadExecutor</strong></h2><p>作用：</p>
+<p>创建一个使用单个 worker 线程的 Executor，以无界队列方式来运行该线程。（注意，如果因为在关闭前的执行期间出现失败而终止了此单个线程，那么如果需要，一个新线程将代替它执行后续的任务）。可保证顺序地执行各个任务，并且在任意给定的时间不会有多个线程是活动的。与其他等效的 newFixedThreadPool(1) 不同，可保证无需重新配置此方法所返回的执行程序即可使用其他的线程。</p>
+<p>特征： </p>
+<p>（1）线程池中最多执行1个线程，之后提交的线程活动将会排在队列中以此执行</p>
+<p>创建方式： </p>
+<p>（1）Executors.newSingleThreadExecutor() ； </p>
+<p>（2）Executors.newSingleThreadExecutor(ThreadFactory threadFactory)；//<br>threadFactory创建线程的工厂方式</p>
+<h2 id="4、newScheduleThreadPool"><a href="#4、newScheduleThreadPool" class="headerlink" title="4、newScheduleThreadPool"></a><strong>4、newScheduleThreadPool</strong></h2><p>作用：</p>
+<p>创建一个线程池，它可安排在给定延迟后运行命令或者定期地执行。</p>
+<p>特征： </p>
+<p>（1）线程池中具有指定数量的线程，即便是空线程也将保留 </p>
+<p>（2）可定时或者延迟执行线程活动</p>
+<p>创建方式： </p>
+<p>（1）Executors.newScheduledThreadPool(int corePoolSize)；// corePoolSize线程的个数 </p>
+<p>（2）newScheduledThreadPool(int corePoolSize, ThreadFactory threadFactory)；//<br>corePoolSize线程的个数，threadFactory创建线程的工厂</p>
+<h2 id="5、newSingleThreadScheduledExecutor"><a href="#5、newSingleThreadScheduledExecutor" class="headerlink" title="5、newSingleThreadScheduledExecutor"></a><strong>5、newSingleThreadScheduledExecutor</strong></h2><p>作用：</p>
+<p>创建一个单线程执行程序，它可安排在给定延迟后运行命令或者定期地执行。</p>
+<p>特征： </p>
+<p>（1）线程池中最多执行1个线程，之后提交的线程活动将会排在队列中以此执行 </p>
+<p>（2）可定时或者延迟执行线程活动</p>
+<p>创建方式： </p>
+<p>（1）Executors.newSingleThreadScheduledExecutor() ； </p>
+<p>（2）Executors.newSingleThreadScheduledExecutor(ThreadFactory threadFactory) ；//threadFactory创建线程的工厂</p>
+<h2 id="Java线程池七个参数详解"><a href="#Java线程池七个参数详解" class="headerlink" title="Java线程池七个参数详解"></a><strong>Java线程池七个参数详解</strong></h2><p><img src="https://img-blog.csdnimg.cn/20190423104753143.png"></p>
+<p>从源码中可以看出，线程池的构造函数有7个参数，分别是corePoolSize、maximumPoolSize、keepAliveTime、unit、workQueue、threadFactory、handler。下面会对这7个参数一一解释。</p>
+<h3 id="一、corePoolSize-线程池核心线程大小"><a href="#一、corePoolSize-线程池核心线程大小" class="headerlink" title="一、corePoolSize 线程池核心线程大小"></a><strong>一、corePoolSize 线程池核心线程大小</strong></h3><p>线程池中会维护一个<strong>最小的线程数量</strong>，即使这些线程处理空闲状态，他们也不会被销毁，除非设置了allowCoreThreadTimeOut。这里的最小线程数量即是corePoolSize。</p>
+<h3 id="二、maximumPoolSize-线程池最大线程数量"><a href="#二、maximumPoolSize-线程池最大线程数量" class="headerlink" title="二、maximumPoolSize 线程池最大线程数量"></a><strong>二、maximumPoolSize 线程池最大线程数量</strong></h3><p>一个任务被提交到线程池以后，首先会找有没有空闲存活线程，如果有则直接将任务交给这个空闲线程来执行，如果没有则会缓存到<strong>工作队列</strong>（后面会介绍）中，如果工作队列满了，才会创建一个新线程，然后从工作队列的头部取出一个任务交由新线程来处理，而<strong>将刚提交的任务放入工作队列尾部</strong>。线程池不会无限制的去创建新线程，它会有一个<strong>最大线程数量的限制</strong>，这个数量即由maximunPoolSize指定。</p>
+<h3 id="三、keepAliveTime-空闲线程存活时间"><a href="#三、keepAliveTime-空闲线程存活时间" class="headerlink" title="三、keepAliveTime 空闲线程存活时间"></a><strong>三、keepAliveTime 空闲线程存活时间</strong></h3><p>一个线程如果处于空闲状态，并且当前的线程数量大于corePoolSize，那么在指定时间后，这个空闲线程会被销毁，这里的指定时间由keepAliveTime来设定.</p>
+<h3 id="四、unit-空闲线程存活时间单位"><a href="#四、unit-空闲线程存活时间单位" class="headerlink" title="四、unit 空闲线程存活时间单位"></a><strong>四、unit 空闲线程存活时间单位</strong></h3><p>keepAliveTime的计量单位</p>
+<h3 id="五、workQueue-工作队列"><a href="#五、workQueue-工作队列" class="headerlink" title="五、workQueue 工作队列"></a><strong>五、workQueue 工作队列</strong></h3><p>新任务被提交后，会先进入到此工作队列中，任务调度时再从队列中取出任务。jdk中提供了四种工作队列：</p>
 <ul>
-<li>ArithmeticException（算术异常）</li>
-<li>ClassCastException （类转换异常）</li>
-<li>IllegalArgumentException （非法参数异常）</li>
-<li>IndexOutOfBoundsException （下标越界异常）</li>
-<li>NullPointerException （空指针异常）</li>
-<li>SecurityException （安全异常）</li>
-</ul>
+<li><p><strong>ArrayBlockingQueue</strong></p>
+<p>基于数组的有界阻塞队列，按FIFO排序。新任务进来后，会放到该队列的队尾，有界的数组可以防止资源耗尽问题。当线程池中线程数量达到corePoolSize后，再有新任务进来，则会将任务放入该队列的队尾，等待被调度。如果队列已经是满的，则创建一个新线程，如果线程数量已经达到maxPoolSize，则会执行拒绝策略。</p>
 </li>
-</ol>
-<ol start="8">
-<li><p>写一个方法，输入一个文件名和一个字符串，统计这个字符串在这个文件中出现的次数。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 工具类中的方法都是静态方式访问的因此将构造器私有不允许创建对象(绝对好习惯)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 统计给定文件中给定字符串的出现次数</span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> filename  文件名</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> word 字符串</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 字符串在文件中出现的次数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">countWordInFile</span><span class="params">(String filename, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">try</span> (FileReader fr = <span class="keyword">new</span> FileReader(filename)) &#123;</span><br><span class="line">            <span class="keyword">try</span> (BufferedReader br = <span class="keyword">new</span> BufferedReader(fr)) &#123;</span><br><span class="line">                String line = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">while</span> (line.length() &gt;= word.length() &amp;&amp; (index = line.indexOf(word)) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                        counter++;</span><br><span class="line">                        line = line.substring(index + word.length());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> counter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>如何用Java代码列出一个目录下所有的文件？</p>
-<p> 如果只要求列出当前文件夹下的文件，代码如下所示：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">&quot;/Users/Hao/Downloads&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</span><br><span class="line">            <span class="keyword">if</span>(temp.isFile()) &#123;</span><br><span class="line">                System.out.println(temp.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 如果需要对文件夹继续展开，代码如下所示：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        showDirectory(<span class="keyword">new</span> File(<span class="string">&quot;/Users/Hao/Downloads&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showDirectory</span><span class="params">(File f)</span> </span>&#123;</span><br><span class="line">        _walkDirectory(f, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">_walkDirectory</span><span class="params">(File f, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(f.isDirectory()) &#123;</span><br><span class="line">            <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</span><br><span class="line">                _walkDirectory(temp, level + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; level - <span class="number">1</span>; i++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(f.getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>阐述JDBC操作数据库的步骤。</p>
-<p>答：下面的代码以连接本机的Oracle数据库为例，演示JDBC操作数据库的步骤。</p>
+<li><p><strong>LinkedBlockingQuene</strong></p>
+<p>基于链表的无界阻塞队列（其实最大容量为Interger.MAX），按照FIFO排序。由于该队列的近似无界性，当线程池中线程数量达到corePoolSize后，再有新任务进来，会一直存入该队列，而不会去创建新线程直到maxPoolSize，因此使用该工作队列时，参数maxPoolSize其实是不起作用的。</p>
+</li>
+<li><p><strong>SynchronousQuene</strong></p>
+<p>一个不缓存任务的阻塞队列，生产者放入一个任务必须等到消费者取出这个任务。也就是说新任务进来时，不会缓存，而是直接被调度执行该任务，如果没有可用线程，则创建新线程，如果线程数量达到maxPoolSize，则执行拒绝策略。</p>
+</li>
+<li><p><strong>PriorityBlockingQueue</strong></p>
+<p>具有优先级的无界阻塞队列，优先级通过参数Comparator实现。</p>
+</li>
+</ul>
+<h3 id="六、threadFactory-线程工厂"><a href="#六、threadFactory-线程工厂" class="headerlink" title="六、threadFactory 线程工厂"></a><strong>六、threadFactory 线程工厂</strong></h3><p>创建一个新线程时使用的工厂，可以用来设定线程名、是否为daemon线程等等</p>
+<h3 id="七、handler-拒绝策略"><a href="#七、handler-拒绝策略" class="headerlink" title="七、handler 拒绝策略"></a><strong>七、handler 拒绝策略</strong></h3><p>当工作队列中的任务已到达最大限制，并且线程池中的线程数量也达到最大限制，这时如果有新任务提交进来，该如何处理呢。这里的拒绝策略，就是解决这个问题的，jdk中提供了4中拒绝策略：</p>
 <ul>
-<li><p>加载驱动。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;oracle.jdbc.driver.OracleDriver&quot;</span>);</span><br></pre></td></tr></table></figure>
+<li><p><strong>CallerRunsPolicy</strong></p>
+<p>该策略下，在调用者线程中直接执行被拒绝任务的run方法，除非线程池已经shutdown，则直接抛弃任务。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190423110958685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3llMTcxODY=,size_16,color_FFFFFF,t_70"></p>
 </li>
-<li><p>创建连接。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection con = DriverManager.getConnection(<span class="string">&quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;</span>, <span class="string">&quot;scott&quot;</span>, <span class="string">&quot;tiger&quot;</span>);</span><br></pre></td></tr></table></figure>
+<li><p><strong>AbortPolicy</strong></p>
+<p>该策略下，直接丢弃任务，并抛出RejectedExecutionException异常。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190423111144317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3llMTcxODY=,size_16,color_FFFFFF,t_70"></p>
 </li>
-<li><p>创建语句。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement ps = con.prepareStatement(<span class="string">&quot;select * from emp where sal between ? and ?&quot;</span>);</span><br><span class="line">ps.setInt(<span class="number">1</span>, <span class="number">1000</span>);</span><br><span class="line">ps.setInt(<span class="number">2</span>, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<li><p><strong>DiscardPolicy</strong></p>
+<p>该策略下，直接丢弃任务，什么都不做。<br><img src="https://img-blog.csdnimg.cn/20190423111218910.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3llMTcxODY=,size_16,color_FFFFFF,t_70"></p>
 </li>
-<li><p>执行语句。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = ps.executeQuery();</span><br></pre></td></tr></table></figure></li>
-<li><p>处理结果。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(rs.next()) &#123;</span><br><span class="line">    System.out.println(rs.getInt(<span class="string">&quot;empno&quot;</span>) + <span class="string">&quot; - &quot;</span> + rs.getString(<span class="string">&quot;ename&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>关闭资源。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(con != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            con.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<li><p><strong>DiscardOldestPolicy</strong></p>
+<p>该策略下，抛弃进入队列最早的那个任务，然后尝试把这次拒绝的任务放入队列</p>
+<p><img src="https://img-blog.csdnimg.cn/20190423111311406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3llMTcxODY=,size_16,color_FFFFFF,t_70"></p>
 </li>
 </ul>
-<blockquote>
-<p>提示：关闭外部资源的顺序应该和打开的顺序相反，也就是说先关闭ResultSet、再关闭Statement、在关闭Connection。上面的代码只关闭了Connection（连接），虽然通常情况下在关闭连接时，连接上创建的语句和打开的游标也会关闭，但不能保证总是如此，因此应该按照刚才说的顺序分别关闭。此外，第一步加载驱动在JDBC 4.0中是可以省略的（自动从类路径中加载驱动），但是我们建议保留。</p>
-</blockquote>
-</li>
-<li><p>使用JDBC操作数据库时，如何提升读取数据的性能？如何提升更新数据的性能？</p>
-<p>答：要提升读取数据的性能，可以指定通过结果集（ResultSet）对象的setFetchSize()方法指定每次抓取的记录数（典型的空间换时间策略）；要提升更新数据的性能可以使用PreparedStatement语句构建批处理，将若干SQL语句置于一个批处理中执行。</p>
-</li>
-<li><p>在进行数据库编程时，连接池有什么作用？</p>
-<p>答：由于创建连接和释放连接都有很大的开销（尤其是数据库服务器不在本地时，每次建立连接都需要进行TCP的三次握手，释放连接需要进行TCP四次握手，造成的开销是不可忽视的），为了提升系统访问数据库的性能，可以事先创建若干连接置于连接池中，需要时直接从连接池获取，使用结束时归还连接池而不必关闭连接，从而避免频繁创建和释放连接所造成的开销，这是典型的用空间换取时间的策略（浪费了空间存储连接，但节省了创建和释放连接的时间）。池化技术在Java开发中是很常见的，在使用线程时创建线程池的道理与此相同。基于Java的开源数据库连接池主要有：C3P0、Proxool、DBCP、BoneCP、Druid等。</p>
-</li>
-<li><p>如何通过反射创建对象？</p>
-<p>答：</p>
-<ul>
-<li>方法1：通过类对象调用newInstance()方法，例如：String.class.newInstance()</li>
-<li>方法2：通过类对象的getConstructor()或getDeclaredConstructor()方法获得构造器（Constructor）对象并调用其newInstance()方法创建对象，例如：String.class.getConstructor(String.class).newInstance(“Hello”);</li>
-</ul>
-</li>
-<li><p>get和post请求的区别？</p>
-<p>答：</p>
-<p>①get请求用来从服务器上获得资源，而post是用来向服务器提交数据；</p>
-<p>②get将表单中数据按照name=value的形式，添加到action 所指向的URL 后面，并且两者使用”?”连接，而各个变量之间使用”&amp;”连接；post是将表单中的数据放在HTTP协议的请求头或消息体中，传递到action所指向URL；</p>
-<p>③get传输的数据要受到URL长度限制（1024字节）；而post可以传输大量的数据，上传文件通常要使用post方式；<br>④使用get时参数会显示在地址栏上，如果这些数据不是敏感数据，那么可以使用get；对于敏感数据还是应用使用post；</p>
-<p>⑤get使用MIME类型application/x-www-form-urlencoded的URL编码（也叫百分号编码）文本的格式传递参数，保证被传送的参数由遵循规范的文本组成，例如一个空格的编码是”%20”。</p>
-</li>
-</ol>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ye17186/article/details/89467919">https://blog.csdn.net/ye17186/article/details/89467919</a></p>
 
       
 
@@ -367,18 +372,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/07/Concurrenthashmap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Concurrenthashmap的实现原理分析
+          线程间通信的几种实现方式
         
       </div>
     </a>
   
   
-    <a href="/2021/03/06/%E4%B8%A4%E5%88%86%E9%92%9F%E8%AE%A9%E4%BD%A0%E6%98%8E%E7%99%BD%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">两分钟让你明白什么是面向对象编程</div>
+    <a href="/2021/03/07/MySQL%E4%B8%BB%E9%94%AE%E5%92%8C%E5%A4%96%E9%94%AE%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL主键和外键使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -405,7 +410,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81newCachedThreadPool"><span class="toc-number">1.1.</span> <span class="toc-text">1、newCachedThreadPool</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81newFixedThreadPool"><span class="toc-number">1.2.</span> <span class="toc-text">2、newFixedThreadPool</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81newSingleThreadExecutor"><span class="toc-number">1.3.</span> <span class="toc-text">3、newSingleThreadExecutor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81newScheduleThreadPool"><span class="toc-number">1.4.</span> <span class="toc-text">4、newScheduleThreadPool</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81newSingleThreadScheduledExecutor"><span class="toc-number">1.5.</span> <span class="toc-text">5、newSingleThreadScheduledExecutor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%83%E4%B8%AA%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.6.</span> <span class="toc-text">Java线程池七个参数详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81corePoolSize-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%A0%B8%E5%BF%83%E7%BA%BF%E7%A8%8B%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.6.1.</span> <span class="toc-text">一、corePoolSize 线程池核心线程大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81maximumPoolSize-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%9C%80%E5%A4%A7%E7%BA%BF%E7%A8%8B%E6%95%B0%E9%87%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">二、maximumPoolSize 线程池最大线程数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81keepAliveTime-%E7%A9%BA%E9%97%B2%E7%BA%BF%E7%A8%8B%E5%AD%98%E6%B4%BB%E6%97%B6%E9%97%B4"><span class="toc-number">1.6.3.</span> <span class="toc-text">三、keepAliveTime 空闲线程存活时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81unit-%E7%A9%BA%E9%97%B2%E7%BA%BF%E7%A8%8B%E5%AD%98%E6%B4%BB%E6%97%B6%E9%97%B4%E5%8D%95%E4%BD%8D"><span class="toc-number">1.6.4.</span> <span class="toc-text">四、unit 空闲线程存活时间单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81workQueue-%E5%B7%A5%E4%BD%9C%E9%98%9F%E5%88%97"><span class="toc-number">1.6.5.</span> <span class="toc-text">五、workQueue 工作队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81threadFactory-%E7%BA%BF%E7%A8%8B%E5%B7%A5%E5%8E%82"><span class="toc-number">1.6.6.</span> <span class="toc-text">六、threadFactory 线程工厂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81handler-%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5"><span class="toc-number">1.6.7.</span> <span class="toc-text">七、handler 拒绝策略</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
