@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Java SE总结其他对象初始化顺序1.父类静态字段初始化 、父类静态代码块2.子类静态字段初始化、子类静态代码块3.父类普通字段初始化、 父类构造代码块、父类构造函数4.子类普通字段初始化、子类构造代码块、子类构造函数 final关键字使用final关键字完成以下的操作： 1.使用final关键字声明一个常量 当final修饰一个基本数据类型时，表示该基本数据类型的值一旦在初始化后便不能发生变化">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+<meta property="og:url" content="http://example.com/2021/03/11/JavaSE/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java SE总结其他对象初始化顺序1.父类静态字段初始化 、父类静态代码块2.子类静态字段初始化、子类静态代码块3.父类普通字段初始化、 父类构造代码块、父类构造函数4.子类普通字段初始化、子类构造代码块、子类构造函数 final关键字使用final关键字完成以下的操作： 1.使用final关键字声明一个常量 当final修饰一个基本数据类型时，表示该基本数据类型的值一旦在初始化后便不能发生变化">
 <meta property="og:locale">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/1208477/201802/1208477-20180205145735076-38850603.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1208477/201904/1208477-20190428171804361-359743648.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1208477/201904/1208477-20190428171630040-478659856.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1208477/201904/1208477-20190428173155329-323959035.png">
+<meta property="article:published_time" content="2021-03-11T08:34:39.239Z">
+<meta property="article:modified_time" content="2021-03-12T02:41:15.992Z">
 <meta property="article:author" content="陈聪">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/1208477/201802/1208477-20180205145735076-38850603.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,289 +165,443 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JavaSE" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java-SE总结"><a href="#Java-SE总结" class="headerlink" title="Java SE总结"></a>Java SE总结</h1><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="对象初始化顺序"><a href="#对象初始化顺序" class="headerlink" title="对象初始化顺序"></a>对象初始化顺序</h3><p>1.父类静态字段初始化 、父类静态代码块<br>2.子类静态字段初始化、子类静态代码块<br>3.父类普通字段初始化、 父类构造代码块、父类构造函数<br>4.子类普通字段初始化、子类构造代码块、子类构造函数</p>
+<h3 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h3><p>使用final关键字完成以下的操作：</p>
+<p>1.使用final关键字声明一个常量</p>
+<p>当final修饰一个基本数据类型时，表示该基本数据类型的值一旦在初始化后便不能发生变化；如果final修饰一个引用类型时，则在对其初始化之后便不能再让其指向其他对象了，但该引用所指向的对象的内容是可以发生变化的</p>
+<p>2.使用final关键字声明一个方法</p>
+<p>该方法为最终方法，且只能被子类继承，但是不能被子类重写。</p>
+<p>3.使用final关键字声明一个类</p>
+<p>该类就转变为最终类，没有子类的类，fianl修饰的类无法被继承。</p>
+<p>4.在方法参数中使用final，在该方法内部不能修改参数的值（在内部类中详解）</p>
+<p>当final变量是基本数据类型以及String类型时，如果在编译期间能知道它的确切值，则编译器会把它当做编译期常量使用，不过要注意，只有在编译期间能确切知道final变量值的情况下，编译器才会进行这样的优化。</p>
+<p>引用变量被final修饰之后，虽然不能再指向其他对象，但是它指向的对象的内容是可变的。</p>
+<h3 id="抽象类和接口的异同点"><a href="#抽象类和接口的异同点" class="headerlink" title="抽象类和接口的异同点"></a>抽象类和接口的异同点</h3><p>接口和抽象类的区别：</p>
+<p>1.抽象类可以有构造方法，接口中不能有构造方法。</p>
+<p>2.抽象类中可以有普通成员变量，接口中没有普通成员变量</p>
+<p>3.抽象类中可以包含静态方法，接口中不能包含静态方法</p>
+<p>4.一个类可以实现多个接口，但只能继承一个抽象类。</p>
+<p>5.接口可以被多重实现，抽象类只能被单一继承</p>
+<p>6.如果抽象类实现接口，则可以把接口中方法映射到抽象类中作为抽象方法而不必实现，而在抽象类的子类中实现接口中方法。</p>
+<p>接口和抽象类的相同点：</p>
+<p>1.都可以被继承</p>
+<p>2.都不能被实例化</p>
+<p>3.都可以包含方法声明</p>
+<p>4.派生类必须实现未实现的方法</p>
+<h2 id="一、面向对象"><a href="#一、面向对象" class="headerlink" title="一、面向对象"></a>一、面向对象</h2><p>面向对象会把事物抽象成对象的概念，就是说这个问题里面有哪些对象，然后给对象赋一些属性和方法，然后让每个对象去执行自己的方法，问题得到解决。</p>
+<p>优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统 更加灵活、更加易于维护</p>
+<p>缺点：性能比面向过程低</p>
+<h3 id="1-封装"><a href="#1-封装" class="headerlink" title="1. 封装"></a>1. 封装</h3><p>封装就是隐藏实现细节，仅对外提供访问接口。</p>
+<p>私有化属性，公有方法。提升属性赋值的合理性。</p>
+<h3 id="2-继承"><a href="#2-继承" class="headerlink" title="2. 继承"></a>2. 继承</h3><p>通过继承可以实现代码重用。</p>
+<p>使用extends让类与类之间产生继承关系，继承的出现提供了多态的前提。</p>
+<h3 id="3-多态"><a href="#3-多态" class="headerlink" title="3. 多态"></a>3. 多态</h3><p>多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定。</p>
+<p>java实现多态有三个必要条件：继承、重写、向上转型。</p>
+<h2 id="二、异常-Throwable"><a href="#二、异常-Throwable" class="headerlink" title="二、异常 Throwable"></a>二、异常 Throwable</h2><h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><p>1.VirtulMachineError虚拟机错误：StackOverFlowError栈溢出错误、OutOfMemoryError内存溢出错误</p>
+<p>2.AWTError</p>
+<h3 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h3><p>1.IOException</p>
+<p>2.RuntimeException： ClassNotFoundException、NullPointerException、算术异常（除数为零）、数组下标越界异常、</p>
+<h2 id="三、集合类"><a href="#三、集合类" class="headerlink" title="三、集合类"></a>三、集合类</h2><h3 id="1-List：for-迭代器-forEach-遍历"><a href="#1-List：for-迭代器-forEach-遍历" class="headerlink" title="1.List：for 迭代器 forEach 遍历"></a>1.List：for 迭代器 forEach 遍历</h3><p>1.1 ArrayList</p>
+<p>它是用数组存储元素的，这个数组可以动态创建，如果元素个数超过了数组的容量，那么就创建一个更大的新数组，并将当前数组中的所有元素都复制到新数组中。</p>
+<p>1.2 LinkedList</p>
+<p>底层是链表，增删快。</p>
+<p>1.3 Vector</p>
+<p>线程安全，synchronized‘</p>
+<blockquote>
+<p>1.4 CopyOnWriteArrayList </p>
+</blockquote>
+<p>“写时复制”，当有写类型的操作作用到 CopyOnWriteArrayList 对象的时候，它们都会先获取锁，然后复制一份当前数据作为副本，然后在当前的数据副本上做修改，最后把修改提交，然后释放锁（所以在数据量大且写多读少的时候要谨慎使用CopyOnWriteArrayList）。</p>
+<h3 id="2-Set：不能存储重复对象，只能使用迭代器遍历"><a href="#2-Set：不能存储重复对象，只能使用迭代器遍历" class="headerlink" title="2.Set：不能存储重复对象，只能使用迭代器遍历"></a>2.Set：不能存储重复对象，只能使用迭代器遍历</h3><p>2.1 HashSet：底层是HashMap，利用HashMap的Key来存储对象，存取无序</p>
+<p>2.2 LinkedHashSet：存取有序</p>
+<p>2.3 TreeSet：按照一定顺序排序</p>
+<h3 id="3-Map"><a href="#3-Map" class="headerlink" title="3.Map"></a>3.Map</h3><blockquote>
+<p><strong>3.1 HashMap</strong>：数组+链表/红黑树</p>
+</blockquote>
+<blockquote>
+<p><strong>底层原理</strong>：</p>
+</blockquote>
+<p>基于hashing的原理，jdk8后采用数组+链表+红黑树的数据结构。我们通过put和get存储和获取对象。当我们给put()方法传递键和值时，先对键做一个hashCode()的计算来得到它在bucket数组中的位置来存储Entry对象。当获取对象时，通过get获取到bucket的位置，再通过键对象的equals()方法找到正确的键值对，然后在返回值对象。</p>
+<blockquote>
+<p><strong>谈一下hashMap中put是如何实现的？</strong></p>
+</blockquote>
+<p>1.如果数组为空时，调用resize()初始化数组</p>
+<p>2.计算关于key的hash值（与Key.hashCode的高16位做异或运算）,和在数组中下标</p>
+<p>3.判断是否发生哈希碰撞，如果没有发生碰撞，直接添加元素到数组中去</p>
+<p>4.如果发生了碰撞，进行三种判断</p>
+<p>4.1:若key地址相同或者equals后内容相同，则替换旧值</p>
+<p>4.2:判断是否是红黑树，如果是红黑树结构，就调用树的插入方法putTreeVal</p>
+<p>4.3：不是红黑树结构，则是链表结构，判断每个节点的key是否和要插入的key相同，相同就覆盖，循环遍历直到链表中某个节点为空，尾插法进行插入，插入之后判断链表个数是否到达变成红黑树的阙值8；</p>
+<p>5.如果桶满了大于阀值，则resize进行扩容</p>
+<blockquote>
+<p><strong>hashMap中什么时候需要进行扩容，扩容resize()又是如何实现的？</strong></p>
+</blockquote>
+<p>调用场景：</p>
+<p>1.初始化数组table</p>
+<p>2.当数组table的size达到阙值时,即++size &gt; load factor * capacity 时，也是在putVal函数中</p>
+<p>实现过程：(细讲)</p>
+<p>1.通过判断旧数组的容量是否大于0来判断数组是否初始化过</p>
+<p>否：进行初始化</p>
+<p>判断是否调用无参构造器，</p>
+<ul>
+<li><p>是:使用默认的大小和阙值</p>
+</li>
+<li><p>否:使用构造函数中初始化的容量，当然这个容量是经过tableSizefor计算后的2的次幂数</p>
+</li>
+</ul>
+<p>是，进行扩容，扩容成两倍(小于最大值的情况下)，之后在进行将元素重新进行与运算复制到新的散列表中</p>
+<p>概括的讲：扩容需要重新分配一个新数组，新数组是老数组的2倍长，然后遍历整个老结构，把所有的元素挨个重新hash分配到新结构中去。</p>
+<blockquote>
+<p><strong>谈一下hashMap中get是如何实现的？</strong></p>
+</blockquote>
+<p>对key的hashCode进行hashing，与运算计算下标获取bucket位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历找，如果有hash冲突，则利用equals方法去遍历链表查找节点。</p>
+<blockquote>
+<p><strong>为什么不直接将key作为哈希值而是与高16位做异或运算？</strong></p>
+</blockquote>
+<p>因为确定数组位置用的是按位与运算，仅仅最后四位有效，设计者将key的哈希值与高16为做异或运算使得在做&amp;运算确定数组的插入位置时，此时的低位实际是高位与低位的结合，增加了随机性，减少了哈希碰撞的次数。</p>
+<p>HashMap默认初始化长度为16，并且每次自动扩展或者是手动初始化容量时，必须是2的幂。</p>
+<blockquote>
+<p><strong>为什么是16？为什么必须是2的幂？如果输入值不是2的幂比如10会怎么样？</strong></p>
+</blockquote>
+<p>1.为了数据的均匀分布，减少哈希碰撞。因为确定数组位置是用的位运算，若数据不是2的次幂则会增加哈希碰撞的次数和浪费数组空间。</p>
+<p>2.输入数据若不是2的幂，HashMap通过一通位移运算和或运算得到的肯定是2的幂次数，并且是离那个数最近的数字</p>
+<blockquote>
+<p><strong>平时在使用HashMap时一般使用什么类型的元素作为Key？</strong></p>
+</blockquote>
+<p>选择Integer，String这种不可变的类型，像对String的一切操作都是新建一个String对象，对新的对象进行拼接分割等，这些类已经很规范的覆写了hashCode()以及equals()方法。作为不可变类天生是线程安全的，</p>
+<blockquote>
+<p><strong>3.2 ConcurrentHashMap</strong></p>
+</blockquote>
+<p>jdk1.7 Segment数组(分段锁，ReentrantLock) + HashEntry数组(类似HashMap)</p>
+<p>jdk1.8 Node数组（链表+红黑树） + CAS + synchronized</p>
+<blockquote>
+<p><strong>为什么要使用ConcurrentHashMap?</strong></p>
+</blockquote>
+<p>1 线程不安全的HashMap(在多线程环境下，使用HashMap 进行put操作会引起死循环，导致CPU利用率接近100%)</p>
+<p>2 效率低下的HashTable(HashTable 容器使用synchronized 来保证线程安全，但在线程竞争激烈的情况下HashTable 的效率非常低下)</p>
+<p>3 ConcurrentHashMap 的锁分段技术可有效提升并发访问率。</p>
+<blockquote>
+<p><strong>put操作</strong></p>
+</blockquote>
+<p>当添加一对键值对的时候，首先会去判断保存这些键值对的数组是不是初始化了，</p>
+<p>*如果没有初始化就先调用initTable()方法来进行初始化过程</p>
+<p>*然后通过计算hash值来确定放在数组的哪个位置</p>
+<p>*如果没有hash冲突就直接CAS插入，如果hash冲突的话，则取出这个节点来</p>
+<p>*如果取出来的节点的hash值是MOVED(-1)的话，则表示当前正在对这个数组进行扩容，复制到新的数组，则当前线程也去帮助复制</p>
+<p>*最后一种情况就是，如果这个节点，不为空，也不在扩容，则通过synchronized来加锁，进行添加操作</p>
+<p>*然后判断当前取出的节点位置存放的是链表还是树</p>
+<p>*如果是链表的话，则遍历整个链表，直到取出来的节点的key来个要放的key进行比较，如果key相等，并且key的hash值也相等的话，</p>
+<p>*则说明是同一个key，则覆盖掉value，否则的话则添加到链表的末尾</p>
+<p>*如果是树的话，则调用putTreeVal方法把这个元素添加到树中去</p>
+<p>*最后在添加完成之后，调用addCount（）方法统计size，判断在该节点处共有多少个节点（注意是添加前的个数），如果达到8个以上了的话，</p>
+<p>*则调用treeifyBin()方法来尝试将处的链表转为树，或者扩容数组,扩容方法transfer();</p>
+<blockquote>
+<p><strong>get操作</strong></p>
+</blockquote>
+<p>计算hash值，定位到该table索引位置，如果是首节点符合就返回</p>
+<p>如果遇到扩容的时候，会调用标志正在扩容节点ForwardingNode的find方法，查找该节点，匹配就返回</p>
+<p>以上都不符合的话，就往下遍历节点，匹配就返回，否则最后就返回null</p>
+<h2 id="三、多线程"><a href="#三、多线程" class="headerlink" title="三、多线程"></a><strong>三、多线程</strong></h2><p>程序：硬盘中的一个可执行文件</p>
+<p>进程：程序的一次动态执行过程，它需要经历从代码加载，代码执行到执行完毕的一个完整的过程。</p>
+<p>线程：进程的一条执行路径。</p>
+<p>多线程：进程中的多条执行路径。</p>
+<p>线程的同步机制：synchronized代码块；同步方法：synchronized修饰后的方法；Lock锁</p>
+<blockquote>
+<p>线程状态：</p>
+</blockquote>
+<ul>
+<li>创建态：创建了一个线程对象后，新的线程对象便处于新建状态，例如 “Thread thread=new Thread()”。</li>
+<li>就绪态：新建线程对象后，调用start() 方法就可以启动线程。当线程启动时，线程进入就绪状态。此时，线程将进入线程队列排队，等待 CPU 服务，已经具备了运行条件。</li>
+<li>运行态：当就绪状态被调用并获得处理器资源时，线程就进入了运行状态。会自动调用该线程对象的 run() 方法。</li>
+<li>阻塞态：一个正在执行的线程在某些特殊情况下，如被人为挂起或需要执行耗时的输入/输出操作，会让 CPU 暂时中止自己的执行，进入阻塞状态。在可执行状态下，如果调用**sleep(),suspend(),wait() **等方法，线程都将进入阻塞状态，发生阻塞时线程不能进入排队队列，只有当引起阻塞的原因被消除后，线程才可以转入就绪状态。</li>
+<li>死亡态：线程调用 stop() 方法时或 run() 方法执行结束后，即处于死亡状态。</li>
+</ul>
+<blockquote>
+<p>线程调度：(java的调度方法)</p>
+</blockquote>
+<p>1.对于同优先级的线程组成先进先出队列（先到先服务），使用时间片策略</p>
+<p>2.对高优先级，使用优先调度的抢占式策略</p>
+<blockquote>
+<p>线程间通信方式：</p>
+</blockquote>
+<ul>
+<li><strong>使用 volatile 关键字</strong></li>
+<li><strong>使用Object类的wait() 和 notify() 方法</strong></li>
+<li><strong>使用 ReentrantLock 结合 Condition</strong></li>
+<li><strong>使用JUC工具类 CountDownLatch</strong></li>
+<li><strong>基本LockSupport实现线程间的阻塞和唤醒</strong></li>
+</ul>
+<blockquote>
+<p>sleep和wait异同</p>
+</blockquote>
+<p>同：一旦执行，都会使当前线程进入阻塞状态<br>异：1.不同类的方法，sleep属Thread方法，wait属Object方法；2.调用的位置不同，sleep可以在任何场景调用，wait必须在同步代码块或同步方法中调用；3.是否释放锁，sleep不释放，wait释放；</p>
+<h2 id="四、网络编程Socket"><a href="#四、网络编程Socket" class="headerlink" title="四、网络编程Socket"></a>四、网络编程Socket</h2><p>网络编程分为BIO（传统IO）、NIO、AIO。Socket编程属于BIO这种传统IO。</p>
+<p>java.net.InetAddress是JAVA中管理IP地址的类,常用<br><img src="https://images2017.cnblogs.com/blog/1208477/201802/1208477-20180205145735076-38850603.png"></p>
+<h3 id="1-UDP"><a href="#1-UDP" class="headerlink" title="1.UDP"></a><strong>1.UDP</strong></h3><p>发送端</p>
+<p>1,  创建DatagramSocket对象  DatagramSocket()</p>
+<p>2，创建DatagramPacket对象，封装数据，并指定ip和端口。</p>
+<p>DatagramPacket(byte[] buf, int length, InetAddress address, int port)　　</p>
+<p>3，发送数据 socket.send(DatagramPacket dp)</p>
+<p>4，释放流资源   ds.close();</p>
+<p>接收端</p>
+<p>1，创建DatagramSocket对象，只需要指定端口   DatagramSocket(port)</p>
+<p>2，创建DatagramPacket对象   DatagramPacket(byte[] data, int length)</p>
+<p>3，接收数据存储到DatagramPacket对象中　receive(DatagramPackage dp)</p>
+<p>4，获取DatagramPacket对象的内容 new String(data,0,dp.getLength());</p>
+<p>5，释放流资源 ds.close();</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现udp发送端</span></span><br><span class="line"><span class="comment"> *  用java.net.DatagramPackage封装数据</span></span><br><span class="line"><span class="comment"> *  用java.net.DatagramSocket发送数据</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 实现步骤</span></span><br><span class="line"><span class="comment"> *  1.用DatagramPackage对象,封装数据,接受的地址和端口</span></span><br><span class="line"><span class="comment"> *  2.创建DatagramSocket</span></span><br><span class="line"><span class="comment"> *  3.调用DatagramSocket对象send方法,发送数据</span></span><br><span class="line"><span class="comment"> *  4.关闭资源</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  DatagramPackage构造函数</span></span><br><span class="line"><span class="comment"> *    DatagramPacket(byte[] buf, int length, InetAddress address, int port)</span></span><br><span class="line"><span class="comment"> *  DatagramSocket构造函数</span></span><br><span class="line"><span class="comment"> *    DatagramSocket()</span></span><br><span class="line"><span class="comment"> *    方法:send(DatagramPacket d)</span></span><br><span class="line"><span class="comment"> *  Created by Autumn on 2018/2/5.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UdpSend</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="comment">//获取地址</span></span><br><span class="line">        InetAddress inet = InetAddress.getByName(<span class="string">&quot;127.0.0.1&quot;</span>);</span><br><span class="line">        <span class="comment">//创建DatagramSocket,负责接受和发送数据</span></span><br><span class="line">        DatagramSocket ds = <span class="keyword">new</span> DatagramSocket();</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            String msg = scanner.nextLine();</span><br><span class="line">            <span class="comment">//创建数据包对象对象</span></span><br><span class="line">            <span class="keyword">byte</span>[] data = msg.getBytes();</span><br><span class="line">            <span class="comment">//封装数据,接受的地址和端口</span></span><br><span class="line">            DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(data,data.length,inet,<span class="number">6000</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//发送数据包</span></span><br><span class="line">            ds.send(dp);</span><br><span class="line">            <span class="keyword">if</span>(msg.equals(<span class="string">&quot;exit&quot;</span>))&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//关闭</span></span><br><span class="line">        ds.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  实现udp接收端</span></span><br><span class="line"><span class="comment"> *  用java.net.DatagramPackage 接受数据</span></span><br><span class="line"><span class="comment"> *  用java.net.DatagramSocket 接受数据包</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  步骤</span></span><br><span class="line"><span class="comment"> *  1.创建DatagramSocket对象,绑定端口号(要和发送端端口一致)</span></span><br><span class="line"><span class="comment"> *  2.创建字节数组用来接受数据</span></span><br><span class="line"><span class="comment"> *  3.创建数据对象包DatagramPackage</span></span><br><span class="line"><span class="comment"> *  4.创建DatagramSocket</span></span><br><span class="line"><span class="comment"> *    receive(DatagramPackage dp)接受数据,将数据封装如dp中</span></span><br><span class="line"><span class="comment"> *  5.拆包</span></span><br><span class="line"><span class="comment"> *    发送端的ip地址(DatagramPackage.get)</span></span><br><span class="line"><span class="comment"> *    接受到的字节数组</span></span><br><span class="line"><span class="comment"> *    发送的端口号</span></span><br><span class="line"><span class="comment"> *  6.关闭资源</span></span><br><span class="line"><span class="comment"> * Created by Autumn on 2018/2/5.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UdpReceive</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//创建数据包传输的对象,并绑定端口号</span></span><br><span class="line">        DatagramSocket ds = <span class="keyword">new</span> DatagramSocket(<span class="number">6000</span>);</span><br><span class="line">        <span class="comment">//创建字节数组</span></span><br><span class="line">        <span class="keyword">byte</span>[] data = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="comment">//创建数据包对象,传递字节数组</span></span><br><span class="line">            DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(data,data.length);</span><br><span class="line">            <span class="comment">//调用ds对象的receive接受数据包,receive()有线程阻塞效果会一直等待接受数据</span></span><br><span class="line">            ds.receive(dp);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取数据包大小</span></span><br><span class="line">            <span class="keyword">int</span> len = dp.getLength();</span><br><span class="line">            <span class="comment">//获取发送端的ip地址</span></span><br><span class="line">            InetAddress sendAddress = dp.getAddress();</span><br><span class="line">            String sendHostAddress = sendAddress.getHostAddress();</span><br><span class="line">            <span class="comment">//System.out.println(sendHostAddress);</span></span><br><span class="line">            <span class="comment">//获取发送端端口号</span></span><br><span class="line">            <span class="keyword">int</span> port = dp.getPort();</span><br><span class="line">            <span class="comment">//System.out.println(port);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//System.out.println(new String(data));   //直接打印1024个字节的字符串,有很多空格</span></span><br><span class="line">            System.out.println(sendHostAddress+<span class="string">&quot;:&quot;</span>+port+<span class="string">&quot;    &quot;</span>+<span class="keyword">new</span> String(data,<span class="number">0</span>,len));   <span class="comment">//这样打印没有多余的空格</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">new</span> String(data,<span class="number">0</span>,len).equals(<span class="string">&quot;exit&quot;</span>))&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//关闭</span></span><br><span class="line">        ds.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-TCP"><a href="#2-TCP" class="headerlink" title="2.TCP"></a><strong>2.TCP</strong></h3><p>客户端</p>
+<p>1，创建客户端的Socket对象，指定服务器IP和端口号 Socket(String host, int port)      </p>
+<p>2，获取Socket的输出流对象 getOutputStream()； </p>
+<p>3，写数据给服务器 out.write(“服务器数据”.getBytes());</p>
+<p>4，关闭流资源 socket.close();</p>
+<p>服务器端</p>
+<p>1，创建服务器端ServerSocket对象，指定服务器端端口号 ServerSocket(int port)</p>
+<p>2，开启服务器，等待着客户端Socket对象的连接，如有客户端连接，返回客户端的Socket对象<br>accept()</p>
+<p>3，通过客户端的Socket对象，获取客户端的输入流，为了实现获取客户端发来的数据 socket.getInputStream();</p>
+<p>4，通过客户端的输入流，获取流中的数据</p>
+<p>byte[] data = new byte[1024];</p>
+<p>int len = inputStream.read(data);</p>
+<p>System.out.println(new String(data,0,len));</p>
+<p>5，通过客户端的Socket对象，获取客户端的输出流，为了实现给客户端反馈信息</p>
+<p>6，通过客户端的输出流，写数据到流中</p>
+<p>7，关闭流资源</p>
+<p>socket.close();<br>serverSocket.close();</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现TCP服务器程序</span></span><br><span class="line"><span class="comment"> * 表示服务器程序的类java.net.ServerSocket</span></span><br><span class="line"><span class="comment"> * 构造方法:</span></span><br><span class="line"><span class="comment"> *      ServerSocket(int port);   传递端口号</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Important:必须获得客户端的套接字(Socket)</span></span><br><span class="line"><span class="comment"> *     方法:Socket accept()</span></span><br><span class="line"><span class="comment"> *     服务器可以获取到客户端的套接字</span></span><br><span class="line"><span class="comment"> * Created by Autumn on 2018/2/5.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCPServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line">        <span class="comment">//调用服务器套接字对象accept()获取客户端套接字,具有线程等待效果</span></span><br><span class="line">        Socket socket = serverSocket.accept();    <span class="comment">//这里会阻塞等待连接接入    cmd中telnet 127.0.0.1 8888即可连接</span></span><br><span class="line">        <span class="comment">//根据获得的客户端的socket获取输入流</span></span><br><span class="line">        InputStream inputStream = socket.getInputStream();</span><br><span class="line">        <span class="comment">//根据输入流将数据读入到data中</span></span><br><span class="line">        <span class="keyword">byte</span>[] data = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len = inputStream.read(data);   <span class="comment">//这里会阻塞,等待数据   cmd中ctrl+]进入到telnet操作模式send value发送数据</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(data,<span class="number">0</span>,len));</span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现TCP客户端,连接到服务器</span></span><br><span class="line"><span class="comment"> * 和服务器实现数据交换</span></span><br><span class="line"><span class="comment"> * 实现TCP客户端程序的类 java.net.Socket</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 构造方法:</span></span><br><span class="line"><span class="comment"> *      Socket(String host, int port)传递服务器IP和端口号</span></span><br><span class="line"><span class="comment"> *      注意:构造方法只要运行,就会和服务器进行连接,连接时报,抛出异常</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *      OutputStream    getOutputStream()  返回套接字的输出流</span></span><br><span class="line"><span class="comment"> *          作用:将数据输出,输出到服务器</span></span><br><span class="line"><span class="comment"> *      InputStream    getInputStream()  返回套接字的输入流</span></span><br><span class="line"><span class="comment"> *          作用:从服务器端读取数据</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *      客户端服务器数据交换,必须使用套接字对象Socket中的获取的IO刘,自己new的流不行</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Created by Autumn on 2018/2/5.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCPClient</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//创建Socket对象,连接服务器</span></span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">8888</span>);</span><br><span class="line">        <span class="comment">//通过客户端的套接字对象Socket方法,获取字节输出流,将数据写向服务器</span></span><br><span class="line">        OutputStream out = socket.getOutputStream();</span><br><span class="line">        out.write(<span class="string">&quot;这是一条来客户端的数据&quot;</span>.getBytes());</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>用cmd命令telnet实现和SocketServer互动</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCPServer</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*同步阻塞*/</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;服务端启动成功...&quot;</span>);</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="comment">/*一次只能处理一个连接,在一个连接没关闭前无法接收第二个连接,在这里开一个框发送数无问题,开放两个框时会出现第二个无反应*/</span></span><br><span class="line">            Socket socket = serverSocket.accept();   <span class="comment">//这里会阻塞等待连接接入    cmd中telnet 127.0.0.1 8888即代表连接</span></span><br><span class="line">            System.out.println(<span class="string">&quot;新客户端连接成功....&quot;</span>);</span><br><span class="line">            InputStream inputStream = socket.getInputStream();</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">                <span class="keyword">byte</span>[] data = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                System.out.println(<span class="string">&quot;正在等待数据...&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> len = inputStream.read(data);    <span class="comment">//这里会阻塞,等待数据，如果直接关闭cmd窗口会因为关闭socket通道导致len返回-1   cmd中ctrl+]进入到telnet操作模式send value发送数据</span></span><br><span class="line">                <span class="keyword">if</span> (len != -<span class="number">1</span>)&#123;</span><br><span class="line">                    System.out.println(<span class="keyword">new</span> String(data, <span class="number">0</span>,len, <span class="string">&quot;GBK&quot;</span>));   <span class="comment">//用GBK是因为CMD窗口命令发送的数据是GBK编码</span></span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//socket.close();</span></span><br><span class="line">        <span class="comment">//serverSocket.close();</span></span><br><span class="line">        <span class="comment">//System.out.println(&quot;服务器端关闭....&quot;);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>连接服务端 </p>
+<p><img src="https://img2018.cnblogs.com/blog/1208477/201904/1208477-20190428171804361-359743648.png"></p>
+<p>向服务端发送数据</p>
+<p><img src="https://img2018.cnblogs.com/blog/1208477/201904/1208477-20190428171630040-478659856.png"></p>
+<p>再开一个cmd然后telnet发送数据，发现无反应。必须关闭第一个cmd才能连接成功。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1208477/201904/1208477-20190428173155329-323959035.png"></p>
+<p>线程池改进，能并发访问</p>
+<p>用ExecutorService线程池实现每一个连接创建一个新的线程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCPServer</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*异步阻塞*/</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ExecutorService threadPool = Executors.newCachedThreadPool();   <span class="comment">//线程池</span></span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;服务端启动成功...&quot;</span>);</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="comment">/*一次只能处理一个连接,在一个连接没关闭前无法接收第二个连接,在这里开一个框发送数无问题,开放两个框时会出现第二个无反应*/</span></span><br><span class="line">            System.out.println(<span class="string">&quot;等待客户端连接...&quot;</span>);</span><br><span class="line">            <span class="keyword">final</span> Socket socket = serverSocket.accept();   <span class="comment">//这里会阻塞等待连接接入    cmd中telnet 127.0.0.1 8888即代表连接</span></span><br><span class="line">            threadPool.execute(<span class="keyword">new</span> Runnable() &#123;   <span class="comment">//启动一个线程</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;新客户端连接成功....&quot;</span>);</span><br><span class="line">                        InputStream inputStream = socket.getInputStream();</span><br><span class="line">                        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">                            <span class="keyword">byte</span>[] data = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                            System.out.println(<span class="string">&quot;正在等待数据...&quot;</span>);</span><br><span class="line">                            <span class="keyword">int</span> len = inputStream.read(data);    <span class="comment">//这里会阻塞,等待数据，如果直接关闭cmd窗口会因为关闭socket通道导致len返回-1   cmd中ctrl+]进入到telnet操作模式send value发送数据</span></span><br><span class="line">                            <span class="keyword">if</span> (len != -<span class="number">1</span>)&#123;</span><br><span class="line">                                    System.out.println(Thread.currentThread()+<span class="keyword">new</span> String(data, <span class="number">0</span>,len, <span class="string">&quot;GBK&quot;</span>));   <span class="comment">//用GBK是因为CMD窗口命令发送的数据是GBK编码</span></span><br><span class="line">                            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                                System.out.println(<span class="string">&quot;break循环&quot;</span>);</span><br><span class="line">                                <span class="keyword">break</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        System.out.println(<span class="string">&quot;一次Socket连接关闭&quot;</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//socket.close();</span></span><br><span class="line">        <span class="comment">//serverSocket.close();</span></span><br><span class="line">        <span class="comment">//System.out.println(&quot;服务器端关闭....&quot;);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="五、JVM"><a href="#五、JVM" class="headerlink" title="五、JVM"></a><strong>五、JVM</strong></h2><h3 id="1-运行时数据区（JVM内存模型）"><a href="#1-运行时数据区（JVM内存模型）" class="headerlink" title="1.运行时数据区（JVM内存模型）"></a>1.运行时数据区（JVM内存模型）</h3><h4 id="1-1-方法区："><a href="#1-1-方法区：" class="headerlink" title="1.1 方法区："></a>1.1 方法区：</h4><p>线程共享，存储被JVM加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。“永久代”，“元空间”</p>
+<h4 id="1-2-堆："><a href="#1-2-堆：" class="headerlink" title="1.2 堆："></a>1.2 堆：</h4><p>线程共享，主要存储对象和数组，是JVM管理内存中最大的区域。内部会划分出多个线程私有的分配缓冲区(Thread Local Allocation Buffer, TLAB)。可以位于物理上不连续的空间，但是逻辑上要连续。</p>
+<p>OutOfMemoryError：如果堆中没有内存完成实例分配，并且堆也无法再扩展时，抛出该异常。</p>
+<p>垃圾回收的主要区域，分为新生代和老年代，新生区又分为Eden、From Survive、To Survive。</p>
+<h4 id="1-3-虚拟机栈："><a href="#1-3-虚拟机栈：" class="headerlink" title="1.3 虚拟机栈："></a>1.3 虚拟机栈：</h4><p>线程私有，java方法执行的内存模型，每个方法在执行时都会创建一个栈帧，用于存放局部变量表、操作数栈、动态链接、方法出口等。每个方法从调用到执行结束都对应着一个栈帧在虚拟机栈中入栈到出栈的过程。</p>
+<p>StackOverflowError：线程请求的栈深度大于虚拟机所允许的深度。</p>
+<p>OutOfMemoryError：如果虚拟机栈可以动态扩展，而扩展时无法申请到足够的内存。</p>
+<h4 id="1-4-本地方法栈"><a href="#1-4-本地方法栈" class="headerlink" title="1.4 本地方法栈"></a>1.4 本地方法栈</h4><p>区别于 Java 虚拟机栈的是，Java 虚拟机栈为虚拟机执行 Java 方法(也就是字节码)服务，而本地方法栈则为虚拟机使用到的 Native 方法服务。也会有 StackOverflowError 和 OutOfMemoryError 异常。</p>
+<h4 id="1-5-程序计数器"><a href="#1-5-程序计数器" class="headerlink" title="1.5 程序计数器"></a>1.5 程序计数器</h4><p>线程私有，内存空间小，当前线程执行字节码的行号指示器，唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError的区域。</p>
+<h3 id="2-垃圾回收"><a href="#2-垃圾回收" class="headerlink" title="2. 垃圾回收"></a>2. 垃圾回收</h3><h4 id="2-1-判断对象是否已死"><a href="#2-1-判断对象是否已死" class="headerlink" title="2.1 判断对象是否已死"></a>2.1 判断对象是否已死</h4><p>引用计数法：给对象添加一个引用计数器，每当有一个地方引用它时计数器加一，引用失效时计数器减一，计数器为0时说明不在引用，可以回收。</p>
+<p>可达性分析：当一个对象到GC Roots没有引用链相连时（GC Roots到这个对象不可达时），证明此对象不可用。</p>
+<pre><code>GC Roots种类：①虚拟机栈中引用的对象；②方法区中静态属性引用的对象；③方法区中常量引用的对象；④本地方法栈中引用的对象；
+</code></pre>
+<p>finalize():对象被回收前的最后一根救命稻草 ①对象是否覆盖finalize方法，是：jvm执行finalize方法；否：jvm回收对象；②jvm是否执行过该对象的finalize方法，是：jvm回收该对象（每个对象的finalize方法只执行一次）；否：jvm执行finalize方法。</p>
+<p>引用：</p>
+<ul>
+<li>强引用：类似Object obj = new Object(),不会被回收；</li>
+<li>软引用：SoftReference实现，在发生内存溢出异常前回收；</li>
+<li>弱引用：WeakReference实现，对象只能生存到下一次垃圾回收之前；</li>
+<li>虚引用：PhantomReference实现，无法通过虚引用获取一个对象的实例，设置虚引用的唯一目的是在这个对象被收集器回收时收到一个系统通知。</li>
+</ul>
+<h4 id="2-2-垃圾回收器"><a href="#2-2-垃圾回收器" class="headerlink" title="2.2 垃圾回收器"></a>2.2 垃圾回收器</h4><p>①Serial/Serial Old:单线程，新生代复制算法，老年代标记-整理算法。<br>Serial收集器进行垃圾回收时，必须暂停其他所有的工作线程，直到它结束（Stop The World）。</p>
+<p>②ParNew:并行多线程，新生代复制算法</p>
+<p>③Parallel Scavenge/Parallel Old：并行多线程，新生代复制算法，目标是达到一个可控制的吞吐量。</p>
+<p>Parallel Scavenge收集器使用两个参数控制吞吐量：</p>
+<ul>
+<li><p>XX:MaxGCPauseMillis 控制最大的垃圾收集停顿时间</p>
+</li>
+<li><p>XX:GCRatio 直接设置吞吐量的大小。</p>
+</li>
+</ul>
+<p>④CMS：目标是获取最短回收停顿时间，并发，基于标记-清除算法实现。运行过程：</p>
+<ul>
+<li><strong>初始标记</strong>：标记GC Roots能直接到的对象，速度快但存在Stop The World问题。</li>
+<li><strong>并发标记</strong>：GC Roots过程，找出存活对象，且用户线程可并发执行。</li>
+<li><strong>重新标记</strong>：为了修正并发标记期间因用户线程继续执行而导致标记产生变动的那一部分对象的标记记录。仍存在Stop The World问题。</li>
+<li><strong>并发清除</strong>：对标记的对象进行清除。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>对CPU资源非常敏感；</li>
+<li>产生垃圾碎片，导致大对象无法分配空间，不得不提前触发一次Full GC；</li>
+<li>无法处理浮动垃圾</li>
+</ul>
+<p>⑤G1：管理整个堆，四个过程：初始标记；并发标记；最终标记；筛选回收；</p>
+<h3 id="3-类加载"><a href="#3-类加载" class="headerlink" title="3.类加载"></a>3.类加载</h3><h4 id="3-1-类的生命周期"><a href="#3-1-类的生命周期" class="headerlink" title="3.1 类的生命周期"></a>3.1 类的生命周期</h4><p>①加载：</p>
+<ul>
+<li>通过类的全限定名来获取此类的二进制字节流</li>
+<li>将二进制字节流代表的静态存储结构转化为方法区的运行时数据结构</li>
+<li>在内存中生成一个代表该类的java.lang.Class对象，作为方法区这个类各种数据的访问入口</li>
+</ul>
+<p>②验证：确保加载的类信息符合JVM规范，没有安全方面的问题</p>
+<p>③准备： 为类变量分配内存并设置初始值</p>
+<p>④解析：把符号引用转换为直接引用</p>
+<p>⑤初始化：执行<clinit>()方法，初始化类变量和静态代码块</p>
+<p>⑥使用</p>
+<p>⑦卸载</p>
+<h4 id="3-2-java类加载器：启动类、扩展类、应用程序类、自定义类加载器"><a href="#3-2-java类加载器：启动类、扩展类、应用程序类、自定义类加载器" class="headerlink" title="3.2 java类加载器：启动类、扩展类、应用程序类、自定义类加载器"></a>3.2 java类加载器：启动类、扩展类、应用程序类、自定义类加载器</h4><h4 id="3-3-双亲委派模型"><a href="#3-3-双亲委派模型" class="headerlink" title="3.3 双亲委派模型"></a>3.3 双亲委派模型</h4><p>防止类的重复加载和防止核心类被篡改</p>
+<h3 id="4-JVM调优"><a href="#4-JVM调优" class="headerlink" title="4.JVM调优"></a>4.JVM调优</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/支付宝收款码.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/微信收款码.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-03-22T03:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93/">操作系统总结</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2021-03-16T03:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySQL数据库总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/07/JVM-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8-CMS%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JVM 垃圾回收器 CMS收集器和G1收集器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-SE%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">Java SE总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.1.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">对象初始化顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.1.2.</span> <span class="toc-text">final关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text">抽象类和接口的异同点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.</span> <span class="toc-text">一、面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B0%81%E8%A3%85"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%A7%E6%89%BF"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%9A%E6%80%81"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 多态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%BC%82%E5%B8%B8-Throwable"><span class="toc-number">1.3.</span> <span class="toc-text">二、异常 Throwable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error"><span class="toc-number">1.3.1.</span> <span class="toc-text">Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exception"><span class="toc-number">1.3.2.</span> <span class="toc-text">Exception</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%9B%86%E5%90%88%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text">三、集合类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-List%EF%BC%9Afor-%E8%BF%AD%E4%BB%A3%E5%99%A8-forEach-%E9%81%8D%E5%8E%86"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.List：for 迭代器 forEach 遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Set%EF%BC%9A%E4%B8%8D%E8%83%BD%E5%AD%98%E5%82%A8%E9%87%8D%E5%A4%8D%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%AA%E8%83%BD%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E5%99%A8%E9%81%8D%E5%8E%86"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.Set：不能存储重复对象，只能使用迭代器遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Map"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.Map</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.5.</span> <span class="toc-text">三、多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BSocket"><span class="toc-number">1.6.</span> <span class="toc-text">四、网络编程Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-UDP"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.UDP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-TCP"><span class="toc-number">1.6.2.</span> <span class="toc-text">2.TCP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81JVM"><span class="toc-number">1.7.</span> <span class="toc-text">五、JVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%88JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.运行时数据区（JVM内存模型）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%96%B9%E6%B3%95%E5%8C%BA%EF%BC%9A"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">1.1 方法区：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%A0%86%EF%BC%9A"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">1.2 堆：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88%EF%BC%9A"><span class="toc-number">1.7.1.3.</span> <span class="toc-text">1.3 虚拟机栈：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="toc-number">1.7.1.4.</span> <span class="toc-text">1.4 本地方法栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-number">1.7.1.5.</span> <span class="toc-text">1.5 程序计数器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">1.7.2.</span> <span class="toc-text">2. 垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%B7%B2%E6%AD%BB"><span class="toc-number">1.7.2.1.</span> <span class="toc-text">2.1 判断对象是否已死</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8"><span class="toc-number">1.7.2.2.</span> <span class="toc-text">2.2 垃圾回收器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%B1%BB%E5%8A%A0%E8%BD%BD"><span class="toc-number">1.7.3.</span> <span class="toc-text">3.类加载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.7.3.1.</span> <span class="toc-text">3.1 类的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%9A%E5%90%AF%E5%8A%A8%E7%B1%BB%E3%80%81%E6%89%A9%E5%B1%95%E7%B1%BB%E3%80%81%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%B1%BB%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="toc-number">1.7.3.2.</span> <span class="toc-text">3.2 java类加载器：启动类、扩展类、应用程序类、自定义类加载器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.7.3.3.</span> <span class="toc-text">3.3 双亲委派模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-JVM%E8%B0%83%E4%BC%98"><span class="toc-number">1.7.4.</span> <span class="toc-text">4.JVM调优</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-03-15T02:55:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/">MySQL数据库总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/JavaSE/" class="archive-article-date">
-  	<time datetime="2021-03-11T08:34:39.239Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/JVM-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8-CMS%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2021-03-07T07:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/JVM-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8-CMS%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/">JVM 垃圾回收器 CMS收集器和G1收集器</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95/" class="archive-article-date">
-  	<time datetime="2021-03-07T06:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95/">聚簇索引和非聚簇索引</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E6%98%AF%E5%90%A6%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95/" class="archive-article-date">
-  	<time datetime="2021-03-07T03:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E6%98%AF%E5%90%A6%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95/">联合索引是否用到索引</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2021-03-07T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">线程间通信的几种实现方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2021-03-07T03:04:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB%E5%9E%8B/">线程池类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/MySQL%E4%B8%BB%E9%94%AE%E5%92%8C%E5%A4%96%E9%94%AE%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-03-07T02:46:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/MySQL%E4%B8%BB%E9%94%AE%E5%92%8C%E5%A4%96%E9%94%AE%E4%BD%BF%E7%94%A8/">MySQL主键和外键使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="extend next" rel="next" href="/archives/2021/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -467,8 +630,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

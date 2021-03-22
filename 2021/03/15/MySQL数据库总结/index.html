@@ -6,13 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Hexo</title>
+  <title>MySQL数据库总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="MySQL数据库总结">
+<meta property="og:url" content="http://example.com/2021/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-03-15T02:55:58.000Z">
+<meta property="article:modified_time" content="2021-03-18T14:59:01.489Z">
 <meta property="article:author" content="陈聪">
 <meta name="twitter:card" content="summary">
   
@@ -156,289 +158,362 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL数据库总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-03-22T03:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93/">操作系统总结</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL数据库总结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2021-03-16T03:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/" class="archive-article-date">
+        
+        <a href="/2021/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/" class="archive-article-date">
   	<time datetime="2021-03-15T02:55:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/">MySQL数据库总结</a>
-    </h1>
-  
+        <!-- 开始添加字数统计-->
+        
+          <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
-          
+<h3 id="1、三大范式"><a href="#1、三大范式" class="headerlink" title="1、三大范式"></a><strong>1、三大范式</strong></h3><p>第一范式：列不可再分；</p>
+<p>第二范式：在第一范式的基础上，非主键列完全依赖于主键，而不能依赖于主键的一部分；</p>
+<p>第三范式：在第二范式的基础上，非主键只依赖于主键，不能依赖于其他非主键。</p>
+<h3 id="2、sql优化"><a href="#2、sql优化" class="headerlink" title="2、sql优化"></a><strong>2、sql优化</strong></h3><ol>
+<li><p>只返回需要的数据</p>
+<p> a) 不要写SELECT *的语句</p>
+<p> b) 合理写WHERE子句，不要写没有WHERE的SQL语句。</p>
+</li>
+<li><p>尽量少做重复的工作</p>
+<p> 可以合并一些sql语句</p>
+</li>
+<li><p>适当建立索引（不是越多越好）但以下几点会进行全表扫描</p>
+<p> a) 左模糊查询’%…’</p>
+<p> b) 使用了不等操作符！=</p>
+<p> c) Or使用不当，or两边都必须有索引才行</p>
+<p> d) not in</p>
+<p> e) Where子句对字段进行表达式操作</p>
+<p> f) 对于创建的复合索引（从最左边开始组合），查询条件用到的列必须从左边开始不能间隔。否则无效，复合索引的结构与电话簿类似</p>
+<p> g) 全文索引：当于对文件建立了一个以词库为目录的索引（文件大全文索引比模糊匹配效果好）</p>
+<p> 能在char、varchar、text类型的列上面创建全文索引</p>
+<p> MySQL 5.6  Innodb引擎也能进行全文索引</p>
+<p> 搜索语法：MATCH (列名1, 列名2,…) AGAINST (搜索字符串 [搜索修饰符])</p>
+<p> 如果列类型是字符串，但在查询时把一个数值型常量赋值给了一个字符型的列名name，那么虽然在name列上有索引，但是也没有用到。</p>
+</li>
+<li><p>使用join代替子查询</p>
+</li>
+<li><p>使用union代替手动创建临时表</p>
+</li>
+</ol>
+<h3 id="3、索引优化"><a href="#3、索引优化" class="headerlink" title="3、索引优化"></a><strong>3、索引优化</strong></h3><p>1、 创建索引，以下情况不适合建立索引</p>
+<ul>
+<li><p> 表记录太少</p>
+</li>
+<li><p>经常插入、删除、修改的表</p>
+</li>
+<li><p>数据重复且分布平均的表字段</p>
+</li>
+</ul>
+<p>2、 复合索引</p>
+<p>如果一个表中的数据在查询时有多个字段总是同时出现则这些字段就可以作为复合索引</p>
+<h3 id="4、索引"><a href="#4、索引" class="headerlink" title="4、索引"></a><strong>4、索引</strong></h3><p>索引是对数据库表中一列或多列的值进行排序的一种结构。</p>
+<p>优点：</p>
+<ul>
+<li><p>大大加快数据的检索速度</p>
+</li>
+<li><p>创建唯一性索引，保证数据库表中每一行数据的唯一性</p>
+</li>
+<li><p>可以加速表和表之间的连接</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li><p>索引需要占物理空间。</p>
+</li>
+<li><p>当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，降低了数据的维护速度。</p>
+</li>
+</ul>
+<p>索引分类：</p>
+<ul>
+<li><p>普通索引</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index zjj_temp_index_1 <span class="keyword">on</span> zjj_temp_1(first_name);</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> index zjj_temp_index_1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>唯一索引，索引列的值必须唯一，但允许有空值</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">unique</span> index zjj_temp_1  <span class="keyword">on</span> zjj_temp_1(id);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主键索引，它是一种特殊的唯一索引，不允许有空值。</p>
+</li>
+<li><p>组合索引</p>
+</li>
+</ul>
+<h3 id="5、事务四大特性-ACID"><a href="#5、事务四大特性-ACID" class="headerlink" title="5、事务四大特性(ACID)"></a><strong>5、事务四大特性(ACID)</strong></h3><p>原子性：事务是最小的执行单位，要么全部执行，要么全部不执行；</p>
+<p>一致性：指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。</p>
+<p>隔离性：一个事物的执行不能被其他事务干扰；</p>
+<p>持久性：事务一旦提交，对数据的改变就是永久的；</p>
+<h3 id="6、脏读、幻读、不可重复读"><a href="#6、脏读、幻读、不可重复读" class="headerlink" title="6、脏读、幻读、不可重复读"></a><strong>6、脏读、幻读、不可重复读</strong></h3><p>脏读(Drity Read)：某个事务已更新一份数据，另一个事务在此时读取了同一份数据，由于某些原因，前一个RollBack了操作，则后一个事务所读取的数据就会是不正确的。</p>
+<p>不可重复读(Non-repeatable read):在一个事务的两次查询之中数据不一致，这可能是两次查询过程中间插入了一个事务更新的原有的数据。</p>
+<p>幻读(Phantom Read):在一个事务的两次查询中数据笔数不一致，例如有一个事务查询了几列(Row)数据，而另一个事务却在此时插入了新的几列数据，先前的事务在接下来的查询中，就会发现有几列数据是它先前所没有的。</p>
+<h3 id="7、事务的隔离级别"><a href="#7、事务的隔离级别" class="headerlink" title="7、事务的隔离级别"></a><strong>7、事务的隔离级别</strong></h3><p>READ-UNCOMMITTED(读取未提交)： 最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。</p>
+<p>READ-COMMITTED(读取已提交)： 允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生。</p>
+<p>REPEATABLE-READ(可重复读)： 对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，可以阻止脏读和不可重复读，但幻读仍有可能发生。</p>
+<p>SERIALIZABLE(可串行化)： 最高的隔离级别，完全服从ACID的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。</p>
+<p>Mysql 默认采用的 REPEATABLE_READ 隔离级别， Oracle 默认采用的 READ_COMMITTED隔离级别。</p>
+<p>事务隔离机制的实现基于<strong>锁机制和并发调度</strong>。其中并发调度使用的是<strong>MVVC（多版本并发控制）</strong>，通过保存修改的旧版本信息来支持并发一致性读和回滚等特性。</p>
+<h3 id="8、存储引擎"><a href="#8、存储引擎" class="headerlink" title="8、存储引擎"></a><strong>8、存储引擎</strong></h3><p>Innodb引擎：Innodb引擎提供了对数据库ACID事务的支持。并且还提供了行级锁和外键的约束。它的设计的目标就是处理大数据容量的数据库系统。查表总行数时，全表扫描.</p>
+<p>MyIASM引擎(原本Mysql的默认引擎)：不提供事务的支持，也不支持行级锁和外键。查表总行数时，不需要全表扫描</p>
+<p>MEMORY引擎：所有的数据都在内存中，数据的处理速度快，但是安全性不高。</p>
+<h4 id="InnoDB和MyISAM的区别："><a href="#InnoDB和MyISAM的区别：" class="headerlink" title="InnoDB和MyISAM的区别："></a><strong>InnoDB和MyISAM的区别：</strong></h4><ol>
+<li><p>InnoDB支持事务，MyISAM不支持，</p>
+</li>
+<li><p>InnoDB支持行级锁，表锁，MyISAM不支持行锁，支持表锁</p>
+</li>
+<li><p>InnoDB支持外键，MyISAM不支持。对于一个包含外键的InnoDB表转换为MyISAM会失败。</p>
+</li>
+<li><p>InnoDB是聚集索引，使用B+Tree作为索引结构，数据文件是和（主键）索引绑在一起的，必须有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。</p>
+<p> MyISAM是非聚集索引，也是使用B+Tree作为索引结构，索引和文件是分离的，索引保存的数据文件的地址，主键索引和辅助索引是独立的。</p>
+</li>
+<li><p>InnoDB不保存表的具体行数，执行select count(*) from table 时需要全表扫描。而MyISAM用一个变量保存了整个表的行数，不需要全表扫描，速度很快。</p>
+</li>
+<li><p>InnoDB不支持全文索引，MyISAM支持全文索引，MySQL5.6以后的InnoDB也支持全文索引。</p>
+</li>
+<li><p>InnoDB表必须有唯一索引（如主键）（用户没有指定的话会自己找一个唯一键或生产一个隐藏键来充当默认主键），而MyISAM可以没有。</p>
+</li>
+</ol>
+<h3 id="9、索引使用场景"><a href="#9、索引使用场景" class="headerlink" title="9、索引使用场景"></a><strong>9、索引使用场景</strong></h3><p>1.where</p>
+<p>2.order by</p>
+<p>当我们使用order by将查询结果按照某个字段排序时，如果该字段没有建立索引，那么执行计划会将查询出的所有数据使用外部排序（将数据从硬盘分批读取到内存使用内部排序，最后合并排序结果），这个操作是很影响性能的，因为需要将查询涉及到的所有数据从磁盘中读到内存（如果单条数据过大或者数据量过多都会降低效率），更无论读到内存之后的排序了。</p>
+<p>3.join</p>
+<p>对join语句匹配关系（on）设计的字段建立索引会提高效率。</p>
+<p><strong>索引覆盖</strong></p>
+<p>如果要查询的字段都建立过索引，那么引擎会直接在索引表中查询而不会访问原始数据（否则只要有一个字段没有建立索引就会做全表扫描），这叫索引覆盖。因此我们需要尽可能的在select后只写必要的查询字段，以增加索引覆盖的几率。</p>
+<h3 id="10、为什么要是用数据库"><a href="#10、为什么要是用数据库" class="headerlink" title="10、为什么要是用数据库"></a><strong>10、为什么要是用数据库</strong></h3><ul>
+<li>数据永久保存</li>
+<li>使用SQL语句，查询方便效率高</li>
+<li>管理数据方便<h3 id="11、创建索引的原则"><a href="#11、创建索引的原则" class="headerlink" title="11、创建索引的原则"></a><strong>11、创建索引的原则</strong></h3>1） <strong>最左前缀匹配原则</strong>，组合索引非常重要的原则，mysql会一直向右匹配直到遇到范围查询(&gt;、&lt;、between、like)就停止匹配，比如a = 1 and b = 2 and c &gt; 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。</li>
+</ul>
+<p>2）较频繁作为查询条件的字段才去创建索引</p>
+<p>3）更新频繁字段不适合创建索引</p>
+<p>4）若是不能有效区分数据的列不适合做索引列(如性别，男女未知，最多也就三种，区分度实在太低)</p>
+<p>5）尽量的扩展索引，不要新建索引。比如表中已经有a的索引，现在要加(a,b)的索引，那么只需要修改原来的索引即可。</p>
+<p>6）定义有外键的数据列一定要建立索引。</p>
+<p>7）对于那些查询中很少涉及的列，重复值比较多的列不要建立索引。</p>
+<p>8）对于定义为text、image和bit的数据类型的列不要建立索引。</p>
+<h3 id="12、最左前缀匹配原则"><a href="#12、最左前缀匹配原则" class="headerlink" title="12、最左前缀匹配原则"></a><strong>12、最左前缀匹配原则</strong></h3><ul>
+<li><p>对于联合索引，MySQL 会一直向右匹配直到遇到范围查询（&gt; ， &lt; ，between，like）就停止匹配。比如 a = 3 and b = 4 and c &gt; 5 and d = 6，如果建立的是（a,b,c,d）这种顺序的索引，那么 d 是用不到索引的，但是如果建立的是 （a,b,d,c）这种顺序的索引的话，那么就没问题，而且 a，b，d 的顺序可以随意调换。</p>
+</li>
+<li><p>= 和 in 可以乱序，比如 a = 3 and b = 4 and c = 5 建立 （a，b，c）索引可以任意顺序。</p>
+</li>
+<li><p>如果建立的索引顺序是 （a，b）那么直接采用 where b = 5 这种查询条件是无法利用到索引的，这一条最能体现最左匹配的特性。</p>
+<h3 id="13、B树和B-树的区别"><a href="#13、B树和B-树的区别" class="headerlink" title="13、B树和B+树的区别"></a><strong>13、B树和B+树的区别</strong></h3></li>
+<li><p>在B树中，你可以将键和值存放在内部节点和叶子节点；但在B+树中，内部节点都是键，没有值，叶子节点同时存放键和值。</p>
+</li>
+<li><p>B+树的叶子节点有一条链相连，而B树的叶子节点各自独立。</p>
+</li>
+</ul>
+<p>使用B树的好处：<br>B树可以在内部节点同时存储键和值，因此，把频繁访问的数据放在靠近根节点的地方将会大大提高热点数据的查询效率。这种特性使得B树在特定数据重复多次查询的场景中更加高效。</p>
+<p>使用B+树的好处：<br>由于B+树的内部节点只存放键，不存放值，因此，一次读取，可以在内存页中获取更多的键，有利于更快地缩小查找范围。 B+树的叶节点由一条链相连，因此，当需要进行一次全数据遍历的时候，B+树只需要使用O(logN)时间找到最小的一个节点，然后通过链进行O(N)的顺序遍历即可。而B树则需要对树的每一层进行遍历，这会需要更多的内存置换次数，因此也就需要花费更多的时间</p>
+<h3 id="14、SQL的生命周期"><a href="#14、SQL的生命周期" class="headerlink" title="14、SQL的生命周期"></a><strong>14、SQL的生命周期</strong></h3><ol>
+<li><p>应用服务器与数据库服务器建立一个连接</p>
+</li>
+<li><p>数据库进程拿到请求sql</p>
+</li>
+<li><p>解析并生成执行计划，执行</p>
+</li>
+<li><p>读取数据到内存并进行逻辑处理</p>
+</li>
+<li><p>通过步骤一的连接，发送结果到客户端</p>
+</li>
+<li><p>关掉连接，释放资源</p>
+</li>
+</ol>
+<h3 id="15、大表数据查询优化"><a href="#15、大表数据查询优化" class="headerlink" title="15、大表数据查询优化"></a><strong>15、大表数据查询优化</strong></h3><ol>
+<li>优化sql语句+索引</li>
+<li>加缓存，redis</li>
+<li>主从复制，读写分离</li>
+<li>垂直拆分，根据模块的耦合度，将一个大的系统分为多个小的系统，也就是分布式系统</li>
+<li>水平切分，</li>
+</ol>
+<h3 id="16、MySQL主从复制原理"><a href="#16、MySQL主从复制原理" class="headerlink" title="16、MySQL主从复制原理"></a><strong>16、MySQL主从复制原理</strong></h3><p>MySQL主从复制是一个异步的复制过程，主库发送更新事件到从库，从库读取更新记录，并执行更新记录，使得从库的内容与主库保持一致。</p>
+<p>对于每一个主从复制的连接，都有三个线程。拥有多个从库的主库为每一个连接到主库的从库创建一个binlog输出线程，每一个从库都有它自己的I/O线程和SQL线程。</p>
+<p>binlog：binary log，主库中保存所有更新事件日志的二进制文件。binlog是数据库服务启动的一刻起，保存数据库所有变更记录（数据库结构和内容）的文件。在主库中，只要有更新事件出现，就会被依次地写入到binlog中，之后会推送到从库中作为从库进行复制的数据源。</p>
+<p>binlog输出线程：每当有从库连接到主库的时候，主库都会创建一个线程然后发送binlog内容到从库。 对于每一个即将发送给从库的sql事件，binlog输出线程会将其锁住。一旦该事件被线程读取完之后，该锁会被释放，即使在该事件完全发送到从库的时候，该锁也会被释放。</p>
+<p>在从库中，当复制开始时，从库就会创建从库I/O线程和从库的SQL线程进行复制处理。</p>
+<p>从库I/O线程：当START SLAVE语句在从库开始执行之后，从库创建一个I/O线程，该线程连接到主库并请求主库发送binlog里面的更新记录到从库上。 从库I/O线程读取主库的binlog输出线程发送的更新并拷贝这些更新到本地文件，其中包括relay log文件。</p>
+<p>从库的SQL线程：从库创建一个SQL线程，这个线程读取从库I/O线程写到relay log的更新事件并执行。</p>
+<h3 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a><strong>分库分表</strong></h3><h4 id="为什么要分库分表"><a href="#为什么要分库分表" class="headerlink" title="为什么要分库分表"></a>为什么要分库分表</h4><p>数据库中的数据量不一定是可控的，在未进行分库分表的情况下，随着时间和业务的发展，库中的表会越来越多，表中的数据量也会越来越大，相应地，数据操作，增删改查的开销也会越来越大。</p>
+<h4 id="垂直分表"><a href="#垂直分表" class="headerlink" title="垂直分表"></a>垂直分表</h4><p>把主键和一些列放在一个表，然后把主键和另外的列放在另一个表中</p>
+<p>适用场景</p>
+<p>1、如果一个表中某些列常用，另外一些列不常用</p>
+<p>2、可以使数据行变小，一个数据页能存储更多数据，查询时减少I/O次数    </p>
+<p>缺点</p>
+<p>管理冗余列，查询所有数据需要join操作</p>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/支付宝收款码.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/微信收款码.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/JavaSE/" class="archive-article-date">
-  	<time datetime="2021-03-11T08:34:39.239Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/JVM-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8-CMS%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2021-03-07T07:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/JVM-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8-CMS%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/">JVM 垃圾回收器 CMS收集器和G1收集器</a>
-    </h1>
+    <a href="/2021/03/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          计算机网络
+        
+      </div>
+    </a>
   
+  
+    <a href="/2021/03/11/JavaSE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95/" class="archive-article-date">
-  	<time datetime="2021-03-07T06:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、三大范式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81sql%E4%BC%98%E5%8C%96"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、sql优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、索引优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E7%B4%A2%E5%BC%95"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E4%BA%8B%E5%8A%A1%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7-ACID"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、事务四大特性(ACID)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E8%84%8F%E8%AF%BB%E3%80%81%E5%B9%BB%E8%AF%BB%E3%80%81%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB"><span class="toc-number">1.0.6.</span> <span class="toc-text">6、脏读、幻读、不可重复读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">1.0.7.</span> <span class="toc-text">7、事务的隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">1.0.8.</span> <span class="toc-text">8、存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#InnoDB%E5%92%8CMyISAM%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">1.0.8.1.</span> <span class="toc-text">InnoDB和MyISAM的区别：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.0.9.</span> <span class="toc-text">9、索引使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%98%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.0.10.</span> <span class="toc-text">10、为什么要是用数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8E%9F%E5%88%99"><span class="toc-number">1.0.11.</span> <span class="toc-text">11、创建索引的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-number">1.0.12.</span> <span class="toc-text">12、最左前缀匹配原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81B%E6%A0%91%E5%92%8CB-%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.0.13.</span> <span class="toc-text">13、B树和B+树的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81SQL%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.0.14.</span> <span class="toc-text">14、SQL的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81%E5%A4%A7%E8%A1%A8%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-number">1.0.15.</span> <span class="toc-text">15、大表数据查询优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16%E3%80%81MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8E%9F%E7%90%86"><span class="toc-number">1.0.16.</span> <span class="toc-text">16、MySQL主从复制原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-number">1.0.17.</span> <span class="toc-text">分库分表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-number">1.0.17.1.</span> <span class="toc-text">为什么要分库分表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E5%88%86%E8%A1%A8"><span class="toc-number">1.0.17.2.</span> <span class="toc-text">垂直分表</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95/">聚簇索引和非聚簇索引</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E6%98%AF%E5%90%A6%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95/" class="archive-article-date">
-  	<time datetime="2021-03-07T03:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E6%98%AF%E5%90%A6%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95/">联合索引是否用到索引</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2021-03-07T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">线程间通信的几种实现方式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2021-03-07T03:04:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB%E5%9E%8B/">线程池类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/MySQL%E4%B8%BB%E9%94%AE%E5%92%8C%E5%A4%96%E9%94%AE%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-03-07T02:46:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/MySQL%E4%B8%BB%E9%94%AE%E5%92%8C%E5%A4%96%E9%94%AE%E4%BD%BF%E7%94%A8/">MySQL主键和外键使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="extend next" rel="next" href="/archives/2021/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -467,8 +542,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
