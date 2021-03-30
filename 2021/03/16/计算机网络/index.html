@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://img-blog.csdn.net/20180717202520531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180717204202563?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="article:published_time" content="2021-03-16T03:05:12.000Z">
-<meta property="article:modified_time" content="2021-03-30T02:37:52.555Z">
+<meta property="article:modified_time" content="2021-03-30T02:43:25.360Z">
 <meta property="article:author" content="陈聪">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdn.net/20180717202520531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
@@ -185,6 +185,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+
 <h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a><strong>三次握手</strong></h3><p><img src="https://img-blog.csdn.net/20180717202520531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="三次握手">  </p>
 <p>第一次握手：客户端要向服务端发起连接请求，首先客户端随机生成一个起始序列号ISN(比如是100)，那客户端向服务端发送的报文段包含SYN标志位(也就是SYN=1)，序列号seq=100。</p>
 <p>第二次握手：服务端收到客户端发过来的报文后，发现SYN=1，知道这是一个连接请求，于是将客户端的起始序列号100存起来，并且随机生成一个服务端的起始序列号(比如是300)。然后给客户端回复一段报文，回复报文包含SYN和ACK标志(也就是SYN=1,ACK=1)、序列号seq=300、确认号ack=101(客户端发过来的序列号+1)。</p>
@@ -362,7 +363,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          操作系统总结
+          JavaSE总结
         
       </div>
     </a>
